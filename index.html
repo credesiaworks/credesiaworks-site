@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>クレデシアワークス | 商品ページ改善・EC改善・Excel業務効率化【中小企業・個人事業向け】</title>
+  <meta name="description" content="商品ページ改善・EC改善・Excel業務効率化を現場目線で支援。楽天・Amazon・ふるさと納税の商品ページ改善、説明文・画像の見直し、Excel VBAによる業務自動化まで。今あるページと仕事の流れを、使いやすく見直します。全国フルリモート対応・NDA締結可。">
+  <meta name="keywords" content="商品ページ改善,EC改善,EC画像,商品画像改善,説明文改善,楽天 商品ページ,Amazon 商品ページ,ふるさと納税 返礼品 画像,Excel 業務効率化,Excel VBA,Excel 自動化,管理表 改善,業務改善,中小企業 業務効率化,現場改善,手作業 削減">
+  <meta name="author" content="クレデシアワークス">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ito-support-lab.pages.dev/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ito-support-lab.pages.dev/">
+  <meta property="og:title" content="クレデシアワークス | 商品ページ改善・EC改善・Excel業務効率化">
+  <meta property="og:description" content="商品ページ改善・EC改善・Excel業務効率化を現場目線で支援。今あるページと仕事の流れを、使いやすく見直します。">
+  <meta property="og:image" content="https://ito-support-lab.pages.dev/22_36_05.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="クレデシアワークス">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="クレデシアワークス | 商品ページ改善・EC改善・Excel業務効率化">
+  <meta name="twitter:description" content="商品ページ改善・EC改善・Excel業務効率化を現場目線で支援。今あるページと仕事の流れを、使いやすく見直します。">
+  <meta name="twitter:image" content="https://ito-support-lab.pages.dev/22_36_05.png">
+
+  <!-- JSON-LD 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "クレデシアワークス",
+    "alternateName": "Credesia Works",
+    "url": "https://ito-support-lab.pages.dev/",
+    "description": "商品ページ改善・EC改善・Excel業務効率化を現場目線で支援。楽天・Amazon・ふるさと納税の商品ページ改善、説明文・画像の見直し、Excel VBAによる業務効率化まで対応。",
+    "areaServed": "JP",
+    "availableLanguage": "Japanese",
+    "priceRange": "¥5,000〜",
+    "serviceType": [
+      "商品ページ改善",
+      "EC改善",
+      "Excel業務効率化",
+      "VBAマクロ",
+      "業務改善",
+      "商品画像改善",
+      "説明文改善"
+    ],
+    "sameAs": [
+      "https://coconala.com/users/6008522"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:  #1e4d82;
+      --accent2: #2f7a55;
+      --bg:  #ffffff;
+      --bg2: #f3f7f3;
+      --text: #1a2d3d;
+      --muted: #5a7280;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ─── CANVAS ─── */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 60px;
+      backdrop-filter: blur(16px);
+      background: rgba(255,255,255,0.92);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      transition: padding .3s;
+    }
+    nav.scrolled { padding: 12px 60px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+
+    .nav-logo {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: var(--accent);
+      text-decoration: none;
+      line-height: 1.25;
+    }
+    .nav-logo .en {
+      display: block;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      color: var(--accent2);
+      text-transform: uppercase;
+    }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      padding: 8px 22px;
+      border: 1px solid var(--accent);
+      color: var(--accent) !important;
+      border-radius: 2px;
+      font-size: .78rem !important;
+      letter-spacing: .1em !important;
+      transition: background .2s, color .2s !important;
+    }
+    .nav-cta:hover { background: var(--accent); color: #fff !important; }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 60px;
+      overflow: hidden;
+    }
+    .hero-bg-photo { position: absolute; inset: 0; z-index: 0; }
+    .hero-bg-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      opacity: .85;
+      filter: brightness(0.95) saturate(0.85);
+    }
+    .hero-bg-photo::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        108deg,
+        rgba(238,246,252,0.96) 0%,
+        rgba(238,246,252,0.80) 44%,
+        rgba(238,246,252,0.12) 100%
+      );
+    }
+    #hero > *:not(.hero-bg-photo) { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .68rem;
+      letter-spacing: .24em;
+      color: var(--accent2);
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      padding: 5px 13px;
+      border: 1px solid rgba(47,122,85,0.25);
+      background: rgba(47,122,85,0.06);
+      width: fit-content;
+      opacity: 0;
+      animation: fadeUp .8s .3s forwards;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+      flex-shrink: 0;
+      animation: pulse 2.2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .35; transform: scale(.75); }
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4.8vw, 4rem);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -.01em;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeUp .8s .5s forwards;
+    }
+    .hero-title .accent {
+      display: block;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      margin-top: 22px;
+      font-size: .95rem;
+      color: var(--muted);
+      max-width: 440px;
+      line-height: 1.95;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp .8s .7s forwards;
+    }
+
+    .hero-btns {
+      margin-top: 40px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp .8s .9s forwards;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn-primary {
+      padding: 14px 32px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: .87rem;
+      letter-spacing: .09em;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: opacity .2s, transform .2s, box-shadow .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .btn-primary::after { content: '→'; font-size: .88em; transition: transform .2s; }
+    .btn-primary:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(30,77,130,0.28); }
+    .btn-primary:hover::after { transform: translateX(4px); }
+
+    .btn-secondary {
+      padding: 14px 32px;
+      border: 1px solid rgba(26,45,61,0.22);
+      color: var(--text);
+      font-weight: 500;
+      font-size: .87rem;
+      letter-spacing: .09em;
+      text-decoration: none;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: border-color .2s, color .2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ─── SECTION BASE ─── */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 100px 60px;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: .68rem;
+      letter-spacing: .32em;
+      color: var(--accent2);
+      text-transform: uppercase;
+      margin-bottom: 13px;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px; height: 1px;
+      background: var(--accent2);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.65rem, 3vw, 2.5rem);
+      font-weight: 900;
+      line-height: 1.28;
+      margin-bottom: 13px;
+    }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 52px;
+    }
+    .section-divider::before {
+      content: '';
+      width: 38px; height: 2px;
+      background: var(--accent);
+    }
+    .section-divider::after {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+      opacity: .65;
+    }
+
+    /* ─── NUMBERS STRIP ─── */
+    #numbers {
+      background: var(--text);
+      padding: 58px 60px;
+      position: relative;
+      z-index: 1;
+    }
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .number-item {
+      padding: 26px 32px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+    }
+    .number-item:last-child { border-right: none; }
+    .number-val {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(2.4rem, 3.5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(90deg, #60a5fa, #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .number-suffix {
+      -webkit-text-fill-color: rgba(96,165,250,0.55);
+      font-size: .42em;
+      vertical-align: middle;
+    }
+    .number-label {
+      font-size: .74rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: .12em;
+      line-height: 1.65;
+    }
+    .number-sub {
+      display: block;
+      font-size: .66rem;
+      color: rgba(255,255,255,0.26);
+      letter-spacing: .07em;
+      margin-top: 4px;
+    }
+
+    /* ─── ABOUT BRAND ─── */
+    #about-brand { background: var(--bg); }
+    .about-brand-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .about-brand-text p {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 2.05;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    .about-brand-text p strong { color: var(--text); font-weight: 700; }
+    .brand-tagline {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: .04em;
+      border-left: 3px solid var(--accent2);
+      padding-left: 14px;
+    }
+
+    .brand-cards { display: flex; flex-direction: column; gap: 14px; }
+    .brand-card {
+      background: var(--bg2);
+      border: 1px solid rgba(30,77,130,0.09);
+      border-left: 3px solid var(--accent);
+      padding: 26px 30px;
+      transition: box-shadow .3s, transform .3s;
+    }
+    .brand-card:hover { box-shadow: 0 6px 28px rgba(30,77,130,0.08); transform: translateX(3px); }
+    .brand-card-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 9px;
+    }
+    .brand-card-icon { color: var(--accent2); flex-shrink: 0; }
+    .brand-card h4 { font-size: .9rem; font-weight: 700; color: var(--text); }
+    .brand-card p { font-size: .79rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--bg2); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+    .service-card {
+      background: var(--bg);
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+      transition: height .4s;
+    }
+    .service-card:hover::before { height: 100%; }
+    .service-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(30,77,130,0.09); }
+
+    .service-num {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .8rem;
+      color: var(--muted);
+      letter-spacing: .2em;
+      margin-bottom: 16px;
+    }
+    .service-icon { width: 44px; height: 44px; margin-bottom: 18px; color: var(--accent); }
+    .service-name { font-size: 1.08rem; font-weight: 700; margin-bottom: 12px; line-height: 1.45; }
+    .service-desc { font-size: .82rem; color: var(--muted); line-height: 1.9; font-weight: 300; }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+    }
+    .service-tag {
+      font-size: .67rem;
+      padding: 3px 9px;
+      background: rgba(30,77,130,0.05);
+      border: 1px solid rgba(30,77,130,0.12);
+      color: var(--accent);
+      letter-spacing: .05em;
+    }
+    .service-price {
+      margin-top: 18px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .98rem;
+      color: var(--accent2);
+      letter-spacing: .05em;
+    }
+
+    /* ─── TARGET ─── */
+    #target { background: var(--bg); }
+    .target-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .target-card {
+      background: var(--bg2);
+      padding: 26px 22px;
+      border-top: 2px solid transparent;
+      transition: border-color .3s, box-shadow .3s, transform .3s;
+    }
+    .target-card:hover {
+      border-color: var(--accent2);
+      box-shadow: 0 5px 24px rgba(47,122,85,0.08);
+      transform: translateY(-2px);
+    }
+    .target-check {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: rgba(47,122,85,0.1);
+      border: 1px solid rgba(47,122,85,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent2);
+      font-size: .7rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .target-text {
+      font-size: .86rem;
+      font-weight: 700;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    /* ─── REASONS ─── */
+    #reasons { background: var(--bg2); }
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2px;
+    }
+    .reason-card {
+      background: var(--bg);
+      padding: 34px 26px;
+      border-bottom: 2px solid transparent;
+      transition: border-color .3s, transform .3s;
+    }
+    .reason-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .reason-num {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: rgba(30,77,130,0.1);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .reason-title { font-size: .9rem; font-weight: 700; margin-bottom: 9px; }
+    .reason-desc { font-size: .79rem; color: var(--muted); line-height: 1.85; font-weight: 300; }
+
+    /* ─── SAMPLES ─── */
+    #samples { background: var(--bg); }
+    .samples-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .sample-card {
+      background: var(--bg2);
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .sample-card:hover { transform: translateY(-3px); box-shadow: 0 12px 38px rgba(30,77,130,0.09); }
+    .sample-preview {
+      height: 210px;
+      background: #e4edf4;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sample-info { padding: 22px; }
+    .sample-cat { font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent2); margin-bottom: 6px; }
+    .sample-title { font-size: .9rem; font-weight: 700; margin-bottom: 6px; line-height: 1.45; }
+    .sample-desc { font-size: .76rem; color: var(--muted); line-height: 1.78; }
+
+    /* ─── WORKS ─── */
+    #works { background: var(--bg2); }
+
+    /* ─── FLOW ─── */
+    #flow { background: var(--bg); }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .flow-step {
+      background: var(--bg2);
+      padding: 36px 24px 32px;
+      position: relative;
+    }
+    .flow-step::after {
+      content: '›';
+      position: absolute;
+      right: -12px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--accent2);
+      opacity: .3;
+      z-index: 2;
+      line-height: 1;
+    }
+    .flow-step:last-child::after { display: none; }
+    .flow-num {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: rgba(30,77,130,0.08);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .flow-title { font-size: .9rem; font-weight: 700; margin-bottom: 8px; }
+    .flow-desc { font-size: .77rem; color: var(--muted); line-height: 1.82; font-weight: 300; }
+    .flow-tag {
+      display: inline-block;
+      margin-top: 13px;
+      font-size: .62rem;
+      letter-spacing: .14em;
+      color: var(--accent2);
+      border: 1px solid rgba(47,122,85,0.22);
+      padding: 3px 9px;
+      text-transform: uppercase;
+    }
+
+    /* ─── CTA ─── */
+    #cta {
+      background: var(--text);
+      text-align: center;
+      padding: 120px 60px;
+    }
+    #cta .section-label {
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+    }
+    #cta .section-label::before { background: rgba(255,255,255,0.2); }
+    #cta .section-title { color: #fff; }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    .cta-divider {
+      width: 40px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      margin: 0 auto 44px;
+    }
+    #cta p {
+      color: rgba(255,255,255,0.55);
+      font-size: .9rem;
+      line-height: 1.95;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+    .cta-trust {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: .77rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: .05em;
+    }
+    .trust-check {
+      width: 17px; height: 17px;
+      border-radius: 50%;
+      background: rgba(74,222,128,0.14);
+      border: 1px solid rgba(74,222,128,0.28);
+      display: flex; align-items: center; justify-content: center;
+      color: #4ade80;
+      font-size: .6rem;
+      flex-shrink: 0;
+    }
+    .btn-light {
+      padding: 14px 42px;
+      background: #fff;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .09em;
+      text-decoration: none;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: opacity .2s, transform .2s, box-shadow .2s;
+    }
+    .btn-light::after { content: '→'; font-size: .88em; transition: transform .2s; }
+    .btn-light:hover { opacity: .93; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+    .btn-light:hover::after { transform: translateX(4px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 36px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg);
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), transparent 70%);
+    }
+    .footer-brand {}
+    .footer-logo-ja { font-size: .98rem; font-weight: 700; color: var(--accent); letter-spacing: .04em; margin-bottom: 3px; }
+    .footer-logo-en {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .7rem; font-weight: 600;
+      letter-spacing: .2em;
+      color: var(--accent2);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .footer-tagline { font-size: .7rem; color: var(--muted); letter-spacing: .04em; }
+    footer p { font-size: .7rem; color: var(--muted); letter-spacing: .04em; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .7s, transform .7s;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── LIGHTBOX ─── */
+    .lb-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(15,23,42,0.85);
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+      cursor: zoom-out;
+      align-items: center; justify-content: center;
+      padding: 40px;
+    }
+    .lb-overlay.open { display: flex; }
+    .lb-overlay img {
+      max-width: 90vw; max-height: 88vh;
+      object-fit: contain;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 0 80px rgba(0,0,0,0.4);
+      animation: lbIn .2s ease;
+    }
+    .lb-close {
+      position: absolute; top: 24px; right: 28px;
+      color: rgba(255,255,255,0.6);
+      font-size: 1.8rem; cursor: pointer; line-height: 1;
+      transition: color .2s;
+    }
+    .lb-close:hover { color: #fff; }
+    @keyframes lbIn {
+      from { opacity: 0; transform: scale(.95); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .sample-preview.has-photo { cursor: zoom-in; }
+    .sample-preview.has-photo::after {
+      content: '拡大';
+      position: absolute; bottom: 10px; right: 12px;
+      font-size: .62rem; letter-spacing: .1em;
+      color: rgba(255,255,255,0.9);
+      background: rgba(0,0,0,0.38);
+      padding: 3px 8px; border-radius: 2px;
+      pointer-events: none;
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      #hero { padding: 0 20px; }
+      section { padding: 72px 20px; }
+      #numbers { padding: 44px 20px; }
+      #cta { padding: 80px 20px; }
+      footer { padding: 28px 20px; flex-direction: column; gap: 14px; text-align: center; }
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+      .number-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 18px 14px; }
+      .number-item:nth-last-child(-n+2) { border-bottom: none; }
+      .about-brand-layout { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .target-grid { grid-template-columns: 1fr; }
+      .samples-grid { grid-template-columns: 1fr; }
+      .flow-steps { grid-template-columns: 1fr 1fr; }
+      .flow-step::after { display: none; }
+      .reasons-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) {
+      .reasons-grid { grid-template-columns: 1fr; }
+      .flow-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    クレデシアワークス
+    <span class="en">Credesia Works</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">サービス</a></li>
+    <li><a href="#target">こんな方へ</a></li>
+    <li><a href="#samples">実績サンプル</a></li>
+    <li><a href="#flow">ご相談の流れ</a></li>
+    <li><a href="https://coconala.com/users/6008522" target="_blank" rel="noopener" class="nav-cta">CONTACT</a></li>
+  </ul>
+</nav>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lightbox">
+  <span class="lb-close" id="lb-close">&times;</span>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-photo">
+    <img src="22_36_05.png" alt="事業現場での業務改善イメージ">
+  </div>
+  <div class="hero-eyebrow">Business Improvement Service</div>
+  <h1 class="hero-title">
+    今あるページと<br>仕事の流れを、
+    <span class="accent">使いやすく見直します。</span>
+  </h1>
+  <p class="hero-sub">
+    商品ページ改善・EC改善・Excel業務効率化を、<br>現場目線で支援します。
+  </p>
+  <div class="hero-btns">
+    <a href="https://coconala.com/users/6008522" target="_blank" rel="noopener" class="btn-primary">ご相談はこちら</a>
+    <a href="#services" class="btn-secondary">サービスを見る</a>
+  </div>
+</section>
+
+<!-- NUMBERS STRIP -->
+<div id="numbers">
+  <div class="numbers-grid reveal">
+    <div class="number-item">
+      <div class="number-val">20<span class="number-suffix">年+</span></div>
+      <div class="number-label">現場実務経験<span class="number-sub">製造業・農機・自動車用品 他</span></div>
+    </div>
+    <div class="number-item">
+      <div class="number-val">15<span class="number-suffix">年+</span></div>
+      <div class="number-label">Excel / VBA 実務<span class="number-sub">集計・自動化・管理表整備</span></div>
+    </div>
+    <div class="number-item">
+      <div class="number-val">EC・<span class="number-suffix" style="-webkit-text-fill-color:rgba(74,222,128,0.55);">農産物</span></div>
+      <div class="number-label">商品ページ改善<span class="number-sub">楽天・Amazon・ふるさと納税 他</span></div>
+    </div>
+    <div class="number-item">
+      <div class="number-val" style="font-size:2rem; padding-top:8px;">全国対応</div>
+      <div class="number-label">フルリモート<span class="number-sub">NDA締結可・秘密保持対応</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT BRAND -->
+<section id="about-brand">
+  <div class="about-brand-layout">
+    <div class="about-brand-text reveal">
+      <div class="section-label">About</div>
+      <h2 class="section-title">無理なデジタル化ではなく、<br>今の仕事に合う改善を。</h2>
+      <div class="section-divider"></div>
+      <p>
+        クレデシアワークスは、会社・店舗・個人事業の<strong>見せ方と仕事の流れを見直す</strong>制作・改善サービスです。
+      </p>
+      <p>
+        商品ページ、画像、説明文、Excel管理表、日々の手作業など、<strong>今あるものをもとに</strong>、使いやすく、伝わりやすい形へ整えます。
+      </p>
+      <p>
+        大きなシステムや高額な広告をかける前に、まず今あるページ・管理表・仕事の流れを整えること。それだけで、商品の良さが伝わり、毎日の作業が進めやすくなる方を多く見てきました。
+      </p>
+      <p>
+        予算・規模・今の環境に合わせて、必要なところから、無理なく見直すことを大切にしています。
+      </p>
+      <span class="brand-tagline">事業の価値を、誇れる形へ。</span>
+    </div>
+    <div class="about-brand-visual reveal">
+      <div class="brand-cards">
+        <div class="brand-card">
+          <div class="brand-card-top">
+            <svg class="brand-card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+            <h4>商品の良さが伝わるページへ</h4>
+          </div>
+          <p>商品の魅力を整理し、買い手目線で構成・説明文・画像を見直します。「なぜ選ばれるのか」が伝わるページへ改善します。</p>
+        </div>
+        <div class="brand-card">
+          <div class="brand-card-top">
+            <svg class="brand-card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 3h18v18H3zM9 3v18M3 9h6M3 15h6M15 9l-2 3 2 3M15 12h4"/>
+            </svg>
+            <h4>日々の手作業が減る仕組みへ</h4>
+          </div>
+          <p>集計・転記・確認作業など、繰り返しの手作業を整理・効率化します。現場のスタッフが使い続けられる形を重視します。</p>
+        </div>
+        <div class="brand-card">
+          <div class="brand-card-top">
+            <svg class="brand-card-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <h4>予算・規模に合わせた改善提案</h4>
+          </div>
+          <p>高額なシステムや大規模ツールの導入ありきではなく、今の環境・予算・体制に合わせて、必要なところから見直します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="reveal">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">できること</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <div class="service-name">商品ページ改善</div>
+      <p class="service-desc">楽天・Amazon・ふるさと納税・ECサイトの商品ページを見直します。「なぜ選ばれるのか」が伝わる構成・説明文・キャッチコピーへ整え、商品画像の改善提案も行います。広告を増やす前の売り場整備として活用いただけます。</p>
+      <div class="service-tags">
+        <span class="service-tag">楽天</span>
+        <span class="service-tag">Amazon</span>
+        <span class="service-tag">ふるさと納税</span>
+        <span class="service-tag">EC</span>
+        <span class="service-tag">説明文改善</span>
+        <span class="service-tag">商品画像</span>
+      </div>
+      <div class="service-price">¥5,000〜</div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/>
+      </svg>
+      <div class="service-name">EC改善</div>
+      <p class="service-desc">販売ページの構成・見せ方を整理し、購入者目線でのページ診断・改善を行います。画像と説明文の訴求を見直し、商品の良さが伝わる売り場に整えます。クリック率・購買率の改善を目的とした構成提案も対応します。</p>
+      <div class="service-tags">
+        <span class="service-tag">ページ構成</span>
+        <span class="service-tag">画像改善</span>
+        <span class="service-tag">訴求文</span>
+        <span class="service-tag">ページ診断</span>
+        <span class="service-tag">農産物</span>
+      </div>
+      <div class="service-price">¥5,000〜</div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 3h18v18H3zM9 3v18M3 9h6M3 15h6M15 9l-2 3 2 3M15 12h4"/>
+      </svg>
+      <div class="service-name">Excel業務効率化</div>
+      <p class="service-desc">集計・転記・確認作業など、繰り返しの手作業をVBAで自動化します。使いにくい管理表の見直しや、現場で使い続けられる形への整備も対応。紙や手入力が中心の作業を、無理のない範囲で整理します。</p>
+      <div class="service-tags">
+        <span class="service-tag">VBA</span>
+        <span class="service-tag">マクロ</span>
+        <span class="service-tag">集計自動化</span>
+        <span class="service-tag">管理表整備</span>
+        <span class="service-tag">転記削減</span>
+      </div>
+      <div class="service-price">¥5,000〜</div>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+      </svg>
+      <div class="service-name">業務改善・小規模ツール化</div>
+      <p class="service-desc">今ある仕事の流れを整理し、規模に合った改善を提案します。高額なSaaSや大規模システムの導入ではなく、現場のスタッフが使い続けられる形での簡易Web化・仕組み化・アプリ化を行います。</p>
+      <div class="service-tags">
+        <span class="service-tag">業務フロー整理</span>
+        <span class="service-tag">Web化</span>
+        <span class="service-tag">仕組み化</span>
+        <span class="service-tag">スマホ対応</span>
+      </div>
+      <div class="service-price">要相談</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TARGET -->
+<section id="target">
+  <div class="reveal">
+    <div class="section-label">For You</div>
+    <h2 class="section-title">こんな方へ</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="target-grid">
+    <div class="target-card reveal">
+      <div class="target-check">✓</div>
+      <div class="target-text">商品の良さがページでうまく伝わっていない</div>
+    </div>
+    <div class="target-card reveal">
+      <div class="target-check">✓</div>
+      <div class="target-text">Excel作業に時間がかかっていて、ほかの仕事が進まない</div>
+    </div>
+    <div class="target-card reveal">
+      <div class="target-check">✓</div>
+      <div class="target-text">手作業や転記が多く、ミスが出やすい状況が続いている</div>
+    </div>
+    <div class="target-card reveal">
+      <div class="target-check">✓</div>
+      <div class="target-text">広告を増やす前に、まず販売ページを見直したい</div>
+    </div>
+    <div class="target-card reveal">
+      <div class="target-check">✓</div>
+      <div class="target-text">大きなシステムではなく、今の規模に合う改善をしたい</div>
+    </div>
+    <div class="target-card reveal">
+      <div class="target-check">✓</div>
+      <div class="target-text">現場のスタッフが実際に使い続けられる形にしたい</div>
+    </div>
+  </div>
+</section>
+
+<!-- REASONS -->
+<section id="reasons">
+  <div class="reveal">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">選ばれる理由</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="reasons-grid">
+    <div class="reason-card reveal">
+      <div class="reason-num">01</div>
+      <div class="reason-title">現場経験をもとに対応します</div>
+      <div class="reason-desc">製造業・農機・自動車用品業界など複数業種で20年以上の実務経験があります。現場の実態に合った提案ができるため、「使われない仕組み」「伝わらないページ」になりにくい対応を心がけています。</div>
+    </div>
+    <div class="reason-card reveal">
+      <div class="reason-num">02</div>
+      <div class="reason-title">買い手目線でページを見直します</div>
+      <div class="reason-desc">EC・ふるさと納税・農産物販売など、さまざまな商品ページの改善に対応しています。スペックの羅列ではなく、選ばれる理由が伝わる構成・説明文・画像に整えます。</div>
+    </div>
+    <div class="reason-card reveal">
+      <div class="reason-num">03</div>
+      <div class="reason-title">Excel・VBAの実務経験が豊富です</div>
+      <div class="reason-desc">集計・転記・確認作業の自動化から、管理表の整備まで幅広く対応。VBAを使いながらも、現場のスタッフが日常的に扱いやすい形を意識して設計します。</div>
+    </div>
+    <div class="reason-card reveal">
+      <div class="reason-num">04</div>
+      <div class="reason-title">今あるものを活かして改善します</div>
+      <div class="reason-desc">新しいシステムや高額なツールを導入しなくても、今の環境・管理表・ページをもとに改善を進めます。予算・体制に合わせた進め方を提案するので、無理なく取り組めます。</div>
+    </div>
+    <div class="reason-card reveal">
+      <div class="reason-num">05</div>
+      <div class="reason-title">相談しやすく、継続的に対応します</div>
+      <div class="reason-desc">「どこから手をつければいいか分からない」という段階からでも相談を受け付けています。納品後の使い方確認や追加調整にも対応しており、導入後のフォローも大切にしています。</div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLES -->
+<section id="samples">
+  <div class="reveal">
+    <div class="section-label">Works &amp; Samples</div>
+    <h2 class="section-title">制作・改善サンプル</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="samples-grid">
+
+    <div class="sample-card reveal">
+      <div class="sample-preview" style="background:#f0f3f8;">
+        <img src="233150.jpg" alt="ExcelファイルのPowerQuery統合" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+      </div>
+      <div class="sample-info">
+        <div class="sample-cat">Excel / Power Query</div>
+        <div class="sample-title">複数ファイルの統合・一元化</div>
+        <div class="sample-desc">部門ごとにバラバラだったExcelファイルをPower Queryで統合。確認・集計がすぐできるデータ基盤に整理しました。</div>
+      </div>
+    </div>
+
+    <div class="sample-card reveal">
+      <div class="sample-preview" style="background:#f0f3f8;">
+        <img src="233152.jpg" alt="管理表・見積書のExcel統一整備" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+      </div>
+      <div class="sample-info">
+        <div class="sample-cat">Excel / 業務改善</div>
+        <div class="sample-title">管理表・見積書の統一整備</div>
+        <div class="sample-desc">フォーマットがバラバラだった管理表・見積書をExcelで標準化。引き継ぎもスムーズな運用体制に整えました。</div>
+      </div>
+    </div>
+
+    <div class="sample-card reveal">
+      <div class="sample-preview" style="background:#f0f3f8;">
+        <img src="233154.jpg" alt="管理表整備 Before After" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+      </div>
+      <div class="sample-info">
+        <div class="sample-cat">Excel / VBA</div>
+        <div class="sample-title">管理表の整備・標準化</div>
+        <div class="sample-desc">散在していた書類をフォーマット統一。担当者が変わっても誰でも使える管理体制へ整えました。</div>
+      </div>
+    </div>
+
+    <div class="sample-card reveal">
+      <div class="sample-preview has-photo" data-src="233147.jpg" style="background:#f5ede0;">
+        <img src="233147.jpg" alt="ふるさと納税 信州りんご 商品画像" style="width:100%;height:100%;object-fit:cover;pointer-events:none;">
+      </div>
+      <div class="sample-info">
+        <div class="sample-cat">EC / 商品ページ改善</div>
+        <div class="sample-title">ふるさと納税 返礼品ページ制作</div>
+        <div class="sample-desc">産地・品質・選ばれる理由が伝わる返礼品画像と説明文を制作。申込率向上を意識したページ構成に仕上げました。</div>
+      </div>
+    </div>
+
+    <div class="sample-card reveal">
+      <div class="sample-preview has-photo" data-src="233148.jpg" style="background:#e8ede0;">
+        <img src="233148.jpg" alt="キャンプチェア 商品画像" style="width:100%;height:100%;object-fit:cover;pointer-events:none;">
+      </div>
+      <div class="sample-info">
+        <div class="sample-cat">EC / 商品ページ改善</div>
+        <div class="sample-title">EC商品画像・説明文の改善</div>
+        <div class="sample-desc">購買意欲が高まるシーンイメージと、スペックを分かりやすく伝える説明文でページを整えました。</div>
+      </div>
+    </div>
+
+    <div class="sample-card reveal">
+      <div class="sample-preview has-photo" data-src="233149.jpg" style="background:#f5f5f5;">
+        <img src="233149.jpg" alt="収納ボックス 商品画像" style="width:100%;height:100%;object-fit:cover;pointer-events:none;">
+      </div>
+      <div class="sample-info">
+        <div class="sample-cat">EC / 商品ページ改善</div>
+        <div class="sample-title">商品の強みが伝わる画像設計</div>
+        <div class="sample-desc">生活シーンに溶け込む商品画像と、特徴を端的に伝える説明文で、選ばれる理由が伝わるページに整えました。</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="reveal">
+    <div class="section-label">Works — App</div>
+    <h2 class="section-title">開発実績</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:2px; max-width:860px;">
+    <a href="machlog.html" style="text-decoration:none; color:inherit; display:block; background:var(--bg2); padding:44px; position:relative; overflow:hidden; border:1px solid rgba(30,77,130,0.1); transition:transform .3s, border-color .3s, box-shadow .3s;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(30,77,130,0.28)';this.style.boxShadow='0 12px 36px rgba(30,77,130,0.09)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(30,77,130,0.1)';this.style.boxShadow=''">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))"></div>
+      <div style="display:flex;align-items:center;gap:11px;margin-bottom:22px;">
+        <span style="font-family:'Rajdhani',sans-serif;font-size:1.55rem;font-weight:700;color:var(--accent);letter-spacing:.05em;">machlog</span>
+        <span style="font-size:.66rem;padding:3px 9px;border:1px solid rgba(30,77,130,0.22);color:var(--accent);letter-spacing:.1em;">Web App</span>
+      </div>
+      <div style="font-size:.98rem;font-weight:700;margin-bottom:11px;line-height:1.5;color:var(--text);">工作機械の切削液・消耗品<br>交換記録・管理アプリ</div>
+      <p style="font-size:.8rem;color:var(--muted);line-height:1.85;margin-bottom:22px;font-weight:300;">複数台の工作機械を持つ工場向け。スマホから交換を記録し、経過日数アラートで交換忘れを防止。月額費用なしの買い切りモデル。</p>
+      <div style="display:flex;align-items:center;gap:7px;font-size:.78rem;color:var(--accent);letter-spacing:.07em;">
+        詳細を見る
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+    <div style="background:var(--bg2);padding:44px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:13px;border:1px dashed rgba(0,0,0,0.1);">
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.16)" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <div style="font-size:.78rem;color:rgba(0,0,0,0.26);letter-spacing:.09em;text-align:center;">追加のツールを<br>順次公開予定</div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section id="flow">
+  <div class="reveal">
+    <div class="section-label">Process</div>
+    <h2 class="section-title">ご相談の流れ</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="flow-steps">
+    <div class="flow-step reveal">
+      <div class="flow-num">01</div>
+      <div class="flow-title">現状の確認</div>
+      <div class="flow-desc">今のページ・画像・Excel管理表・業務内容をお伺いします。「どこから手をつければ良いか分からない」という段階でも受け付けています。</div>
+      <span class="flow-tag">初回無料</span>
+    </div>
+    <div class="flow-step reveal">
+      <div class="flow-num">02</div>
+      <div class="flow-title">改善方針の整理</div>
+      <div class="flow-desc">何を直すと効果が出やすいか、無理のない範囲で整理します。NDA締結が必要な場合は先行して対応します。</div>
+      <span class="flow-tag">NDA対応可</span>
+    </div>
+    <div class="flow-step reveal">
+      <div class="flow-num">03</div>
+      <div class="flow-title">制作・改善</div>
+      <div class="flow-desc">ページ文面・画像構成・Excel管理表・VBAなどを、合意した内容に沿って改善します。途中経過の確認・調整にも柔軟に対応します。</div>
+      <span class="flow-tag">進捗共有あり</span>
+    </div>
+    <div class="flow-step reveal">
+      <div class="flow-num">04</div>
+      <div class="flow-title">納品・使い方確認</div>
+      <div class="flow-desc">納品後、使い方や改善内容を確認できるようにします。運用上の疑問や追加調整にも継続的に対応します。</div>
+      <span class="flow-tag">全国リモート</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="section-label reveal">Contact</div>
+    <h2 class="section-title reveal">現状の確認から、<br>気軽にご相談ください。</h2>
+    <div class="cta-divider reveal"></div>
+    <p class="reveal">
+      「どこから手をつければいいか分からない」という段階でも構いません。<br>
+      今のページ・管理表・仕事の流れをお聞きし、<br>無理のない改善の進め方をご提案します。
+    </p>
+    <div class="cta-trust reveal">
+      <div class="trust-item"><div class="trust-check">✓</div>初回ご相談・ヒアリング無料</div>
+      <div class="trust-item"><div class="trust-check">✓</div>NDA（秘密保持契約）締結可</div>
+      <div class="trust-item"><div class="trust-check">✓</div>全国フルリモート対応</div>
+      <div class="trust-item"><div class="trust-check">✓</div>納品後の確認・調整に対応</div>
+    </div>
+    <div class="reveal">
+      <a href="https://coconala.com/users/6008522" target="_blank" rel="noopener" class="btn-light">
+        ココナラでご相談する
+      </a>
+      <p style="margin-top:16px; font-size:.74rem; color:rgba(255,255,255,0.38); letter-spacing:.04em;">ご返信は通常1営業日以内を目安にしております。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-logo-ja">クレデシアワークス</div>
+    <div class="footer-logo-en">Credesia Works</div>
+    <div class="footer-tagline">商品ページ改善・EC改善・Excel業務効率化</div>
+  </div>
+  <p>© 2025 クレデシアワークス. All rights reserved.</p>
+</footer>
+
+<script>
+  /* ── Particle canvas ── */
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  class Particle {
+    constructor() { this.reset(true); }
+    reset(initial) {
+      this.x = Math.random() * W;
+      this.y = initial ? Math.random() * H : H + 10;
+      this.vx = (Math.random() - 0.5) * 0.28;
+      this.vy = -(Math.random() * 0.35 + 0.08);
+      this.alpha = Math.random() * 0.07 + 0.02;
+      this.r = Math.random() * 0.8 + 0.2;
+      this.green = Math.random() > 0.5;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.y < -10) this.reset(false);
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = this.green
+        ? `rgba(47,122,85,${this.alpha})`
+        : `rgba(30,77,130,${this.alpha})`;
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < 40; i++) particles.push(new Particle());
+
+  function drawGrid() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.strokeStyle = 'rgba(30,77,130,0.04)';
+    ctx.lineWidth = 1;
+    const s = 100;
+    for (let x = 0; x < W; x += s) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (let y = 0; y < H; y += s) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+  }
+
+  function animate() {
+    drawGrid();
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  /* ── Nav scroll ── */
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ── Scroll reveal ── */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 75);
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* ── Lightbox ── */
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  document.querySelectorAll('.sample-preview.has-photo').forEach(el => {
+    el.addEventListener('click', () => {
+      lbImg.src = el.dataset.src;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+</script>
+</body>
+</html>

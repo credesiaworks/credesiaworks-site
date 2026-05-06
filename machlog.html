@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>machlog | 工作機械 切削液・消耗品交換管理アプリ【買い切り¥30,000・月額なし】</title>
+  <meta name="description" content="マシニングセンタ・CNC旋盤など複数台の工作機械を持つ工場向け。切削液・冷却水・作動油・フィルターの交換をスマホで記録し、経過日数アラートで交換忘れをゼロに。月額費用なしの買い切りWebアプリ。">
+  <meta name="keywords" content="工作機械,切削液管理,消耗品管理,交換記録,マシニングセンタ,CNC旋盤,工場アプリ,スマホ管理,予防保全,買い切り,月額なし">
+  <meta name="author" content="ITO Support Lab">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ito-support-lab.pages.dev/machlog.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ito-support-lab.pages.dev/machlog.html">
+  <meta property="og:title" content="machlog | 工作機械 切削液・消耗品管理アプリ【買い切り・月額なし】">
+  <meta property="og:description" content="マシニングセンタ・CNC旋盤など複数台の工作機械を持つ工場向け。スマホで交換記録・アラート管理。月額費用なし¥30,000の買い切りWebアプリ。">
+  <meta property="og:image" content="https://ito-support-lab.pages.dev/22_36_05.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="ITO Support Lab">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="machlog | 工作機械 切削液・消耗品管理アプリ【買い切り・月額なし】">
+  <meta name="twitter:description" content="マシニングセンタ・CNC旋盤など複数台の工作機械を持つ工場向け。スマホで交換記録・アラート管理。月額費用なし¥30,000の買い切りWebアプリ。">
+  <meta name="twitter:image" content="https://ito-support-lab.pages.dev/22_36_05.png">
+
+  <!-- JSON-LD 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "machlog",
+    "url": "https://ito-support-lab.pages.dev/machlog.html",
+    "description": "工作機械の切削液・消耗品交換を記録・管理するWebアプリ。マシニングセンタ・CNC旋盤など複数台対応。スマホから記録・アラート通知。",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "iOS, Android, Windows",
+    "offers": {
+      "@type": "Offer",
+      "price": "30000",
+      "priceCurrency": "JPY",
+      "description": "買い切り・月額費用なし"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "ITO Support Lab",
+      "url": "https://ito-support-lab.pages.dev/"
+    },
+    "featureList": [
+      "切削液・消耗品交換サイクル可視化",
+      "経過日数アラート通知",
+      "スマートフォン対応",
+      "複数機種・複数消耗品対応",
+      "交換履歴検索・トレーサビリティ"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #2563eb;
+      --accent2: #7c3aed;
+      --warn: #f59e0b;
+      --bg: #ffffff;
+      --bg2: #f1f5fb;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    #bg-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 60px;
+      backdrop-filter: blur(16px);
+      background: rgba(255,255,255,0.88);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.4rem; font-weight: 700;
+      letter-spacing: .1em; color: var(--accent); text-decoration: none;
+    }
+    .nav-logo span { color: var(--muted); font-size: .85rem; margin-left: 8px; vertical-align: middle; }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--muted); font-size: .82rem; text-decoration: none;
+      letter-spacing: .08em; transition: color .2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    /* HERO */
+    #hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 60px 80px;
+      overflow: hidden;
+    }
+    .hero-bg-text {
+      position: absolute;
+      right: -40px; top: 50%; transform: translateY(-50%);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 22vw; font-weight: 700; line-height: 1;
+      color: rgba(37,99,235,0.05);
+      pointer-events: none; user-select: none;
+      white-space: nowrap;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px;
+      border: 1px solid rgba(37,99,235,0.3);
+      color: var(--accent); font-size: .72rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp .7s .2s forwards;
+    }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 1.5s infinite; }
+
+    .hero-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(4rem, 12vw, 10rem);
+      font-weight: 700; line-height: .9;
+      letter-spacing: -.02em;
+      background: linear-gradient(135deg, var(--text) 30%, var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      opacity: 0; animation: fadeUp .7s .4s forwards;
+    }
+    .hero-sub-title {
+      margin-top: 16px;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 700; color: var(--text);
+      letter-spacing: .03em;
+      opacity: 0; animation: fadeUp .7s .55s forwards;
+    }
+    .hero-desc {
+      margin-top: 20px;
+      font-size: .95rem; color: var(--muted);
+      max-width: 520px; line-height: 1.9; font-weight: 300;
+      opacity: 0; animation: fadeUp .7s .7s forwards;
+    }
+    .hero-chips {
+      margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px;
+      opacity: 0; animation: fadeUp .7s .85s forwards;
+    }
+    .chip {
+      padding: 6px 14px;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.1);
+      font-size: .75rem; color: var(--muted);
+      letter-spacing: .06em;
+    }
+    .chip.hot { border-color: rgba(37,99,235,0.3); color: var(--accent); background: rgba(37,99,235,0.06); }
+
+    .hero-btns {
+      margin-top: 44px; display: flex; gap: 16px;
+      opacity: 0; animation: fadeUp .7s 1s forwards;
+    }
+    .btn-primary {
+      padding: 15px 36px;
+      background: var(--accent); color: #fff;
+      font-weight: 700; font-size: .9rem;
+      letter-spacing: .1em; border: none; cursor: pointer;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: opacity .2s, transform .2s, box-shadow .2s;
+    }
+    .btn-primary::after { content: '→'; font-size: .9em; transition: transform .2s; }
+    .btn-primary:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.3); }
+    .btn-primary:hover::after { transform: translateX(4px); }
+    .btn-ghost {
+      padding: 15px 36px;
+      border: 1px solid rgba(0,0,0,0.2);
+      color: var(--text); font-weight: 500; font-size: .9rem;
+      letter-spacing: .1em; text-decoration: none; display: inline-block;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: border-color .2s, color .2s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* MOCKUP */
+    .hero-mockup {
+      position: absolute; right: 60px; top: 50%; transform: translateY(-50%);
+      width: min(380px, 36vw);
+      opacity: 0; animation: fadeIn 1s .8s forwards;
+    }
+    .mockup-phone {
+      background: var(--bg2);
+      border: 1px solid rgba(37,99,235,0.15);
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 8px 60px rgba(37,99,235,0.1), 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .mockup-bar {
+      background: rgba(37,99,235,0.06);
+      padding: 12px 20px;
+      display: flex; align-items: center; gap: 10px;
+      border-bottom: 1px solid rgba(37,99,235,0.1);
+    }
+    .mockup-bar-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .85rem; color: var(--accent); letter-spacing: .15em;
+    }
+    .mockup-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); opacity: .6; }
+    .mockup-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+    .mockup-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 6px;
+    }
+    .mockup-machine { font-size: .8rem; color: var(--text); font-weight: 500; }
+    .mockup-meta { font-size: .7rem; color: var(--muted); margin-top: 2px; }
+    .mockup-status {
+      font-size: .68rem; padding: 4px 10px; border-radius: 2px;
+      font-weight: 700; letter-spacing: .06em;
+    }
+    .status-ok { background: rgba(37,99,235,0.1); color: var(--accent); }
+    .status-warn { background: rgba(245,158,11,0.12); color: #b45309; }
+    .status-due { background: rgba(239,68,68,0.12); color: #dc2626; }
+    .mockup-add-btn {
+      margin: 4px 0;
+      padding: 10px;
+      border: 1px dashed rgba(37,99,235,0.25);
+      border-radius: 6px; text-align: center;
+      font-size: .75rem; color: rgba(37,99,235,0.5);
+    }
+
+    /* PROBLEM / SOLUTION */
+    #problem {
+      position: relative; z-index: 1;
+      background: var(--bg2); padding: 100px 60px;
+    }
+    .ps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 60px; }
+    .ps-col { padding: 48px; background: var(--bg); }
+    .ps-label {
+      font-size: .7rem; letter-spacing: .25em; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .ps-label.problem { color: #dc2626; }
+    .ps-label.solution { color: var(--accent); }
+    .ps-col h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 24px; line-height: 1.4; }
+    .ps-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .ps-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: .88rem; color: var(--muted); line-height: 1.7;
+    }
+    .ps-icon { flex-shrink: 0; margin-top: 2px; }
+
+    /* FEATURES */
+    #features { position: relative; z-index: 1; background: var(--bg); padding: 100px 60px; }
+    .section-label { display: flex; align-items: center; gap: 12px; font-size: .72rem; letter-spacing: .3em; color: var(--accent); text-transform: uppercase; margin-bottom: 16px; }
+    .section-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); flex-shrink: 0; }
+    .section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; line-height: 1.2; margin-bottom: 16px; }
+    .section-divider { display: flex; align-items: center; gap: 6px; margin-bottom: 60px; }
+    .section-divider::before { content: ''; width: 48px; height: 2px; background: var(--accent); }
+    .section-divider::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); opacity: .6; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .feature-card {
+      background: var(--bg2); padding: 40px 32px;
+      position: relative; overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .feature-card::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .4s;
+    }
+    .feature-card:hover::after { transform: scaleX(1); }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(37,99,235,0.1); }
+    .feature-icon { width: 44px; height: 44px; color: var(--accent); margin-bottom: 20px; }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 12px; }
+    .feature-card p { font-size: .83rem; color: var(--muted); line-height: 1.8; }
+
+    /* PRICING */
+    #pricing { position: relative; z-index: 1; background: var(--bg2); padding: 100px 60px; }
+    .pricing-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: start; margin-top: 60px; }
+
+    .price-main {
+      background: var(--bg); padding: 48px;
+      border: 1px solid rgba(37,99,235,0.2);
+      position: relative; overflow: hidden;
+    }
+    .price-main::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .price-tag { font-family: 'Rajdhani', sans-serif; font-size: .75rem; letter-spacing: .2em; color: var(--accent); margin-bottom: 16px; }
+    .price-amount { font-family: 'Rajdhani', sans-serif; line-height: 1; margin-bottom: 6px; }
+    .price-amount .yen { font-size: 1.5rem; vertical-align: super; color: var(--muted); }
+    .price-amount .num { font-size: 4.5rem; font-weight: 700; }
+    .price-amount .unit { font-size: .9rem; color: var(--muted); margin-left: 4px; }
+    .price-note { font-size: .78rem; color: var(--muted); margin-bottom: 28px; }
+    .price-included { display: flex; flex-direction: column; gap: 10px; }
+    .price-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .83rem; color: var(--muted);
+    }
+    .price-item svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
+
+    .options-list { display: flex; flex-direction: column; gap: 2px; }
+    .option-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 24px; background: var(--bg);
+      transition: border-color .2s, box-shadow .2s;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .option-item:hover { border-color: rgba(37,99,235,0.2); box-shadow: 0 2px 12px rgba(37,99,235,0.06); }
+    .option-name { font-size: .88rem; font-weight: 500; }
+    .option-desc { font-size: .75rem; color: var(--muted); margin-top: 3px; }
+    .option-price { font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; color: var(--accent); white-space: nowrap; margin-left: 16px; }
+
+    /* SPEC */
+    #spec { position: relative; z-index: 1; background: var(--bg); padding: 100px 60px; }
+    .spec-table { width: 100%; border-collapse: collapse; margin-top: 60px; }
+    .spec-table tr { border-bottom: 1px solid rgba(0,0,0,0.07); }
+    .spec-table tr:first-child { border-top: 1px solid rgba(0,0,0,0.07); }
+    .spec-table td { padding: 20px 0; vertical-align: top; }
+    .spec-table td:first-child { width: 200px; font-size: .8rem; color: var(--muted); letter-spacing: .06em; padding-right: 32px; }
+    .spec-table td:last-child { font-size: .9rem; line-height: 1.8; }
+
+    /* CTA */
+    #cta {
+      position: relative; z-index: 1;
+      background: var(--bg2); padding: 120px 60px;
+      text-align: center;
+    }
+    #cta h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 20px; }
+    #cta p { color: var(--muted); font-size: .95rem; line-height: 1.9; max-width: 500px; margin: 0 auto 48px; font-weight: 300; }
+    .cta-price-hint {
+      display: inline-block; margin-bottom: 32px;
+      padding: 14px 32px;
+      border: 1px solid rgba(37,99,235,0.2);
+      font-family: 'Rajdhani', sans-serif;
+    }
+    .cta-price-hint .big { font-size: 2.4rem; font-weight: 700; color: var(--accent); }
+    .cta-price-hint .sm { font-size: .78rem; color: var(--muted); letter-spacing: .1em; }
+
+    /* FOOTER */
+    footer {
+      position: relative; z-index: 1;
+      border-top: none;
+      padding: 28px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--bg);
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), transparent 70%);
+    }
+    footer .f-logo { font-family: 'Rajdhani', sans-serif; font-size: 1rem; color: var(--accent); letter-spacing: .1em; }
+    footer .f-logo span { color: var(--muted); }
+    footer p { font-size: .72rem; color: var(--muted); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s, transform .7s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: .3; }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      #hero { padding: 100px 24px 60px; }
+      .hero-mockup { display: none; }
+      section, #problem, #features, #pricing, #spec, #cta { padding: 72px 24px; }
+      .ps-grid, .features-grid, .pricing-layout { grid-template-columns: 1fr; }
+      footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
+      .spec-table td:first-child { width: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">ITO <span style="color:var(--muted)">Support Lab</span><span>/ machlog</span></a>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    サイトトップへ
+  </a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">machlog</div>
+  <div class="hero-badge"><div class="badge-dot"></div>Web App — 買い切りモデル</div>
+  <div class="hero-title">machlog</div>
+  <div class="hero-sub-title">工作機械の切削液・消耗品<br>交換記録・管理アプリ</div>
+  <p class="hero-desc">
+    マシニングセンタ・CNCなど複数台の工作機械を持つ工場向け。<br>
+    切削液・冷却水・作動油・フィルターの交換をスマホで記録し、<br>
+    経過日数アラートで交換忘れをゼロにします。
+  </p>
+  <div class="hero-chips">
+    <span class="chip hot">月額費用なし</span>
+    <span class="chip hot">スマホ対応</span>
+    <span class="chip">React製 Webアプリ</span>
+    <span class="chip">多機種対応</span>
+    <span class="chip">納期14日〜</span>
+  </div>
+  <div class="hero-btns">
+    <a href="https://coconala.com/services/4181220" target="_blank" rel="noopener" class="btn-primary">ココナラで購入・相談</a>
+    <a href="#features" class="btn-ghost">機能を見る</a>
+  </div>
+
+  <!-- Phone mockup -->
+  <div class="hero-mockup">
+    <div class="mockup-phone">
+      <div class="mockup-bar">
+        <div class="mockup-dot"></div>
+        <div class="mockup-bar-title">machlog</div>
+      </div>
+      <div class="mockup-body">
+        <div class="mockup-row">
+          <div>
+            <div class="mockup-machine">MC-001 マシニングセンタ</div>
+            <div class="mockup-meta">切削液 — 交換から 18日</div>
+          </div>
+          <div class="mockup-status status-ok">正常</div>
+        </div>
+        <div class="mockup-row">
+          <div>
+            <div class="mockup-machine">L-003 CNC旋盤</div>
+            <div class="mockup-meta">フィルター — 交換から 28日</div>
+          </div>
+          <div class="mockup-status status-warn">要確認</div>
+        </div>
+        <div class="mockup-row">
+          <div>
+            <div class="mockup-machine">MC-005 マシニングセンタ</div>
+            <div class="mockup-meta">作動油 — 交換から 45日</div>
+          </div>
+          <div class="mockup-status status-due">交換期限</div>
+        </div>
+        <div class="mockup-row">
+          <div>
+            <div class="mockup-machine">L-007 CNC旋盤</div>
+            <div class="mockup-meta">冷却水 — 交換から 5日</div>
+          </div>
+          <div class="mockup-status status-ok">正常</div>
+        </div>
+        <div class="mockup-add-btn">＋ 交換記録を追加</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM / SOLUTION -->
+<section id="problem">
+  <div class="reveal">
+    <div class="section-label">Problem → Solution</div>
+    <h2 class="section-title">こんな課題を解決します</h2>
+  </div>
+  <div class="ps-grid reveal">
+    <div class="ps-col">
+      <div class="ps-label problem">Before — よくある現場の課題</div>
+      <h3>「いつ換えたっけ？」<br>が毎回起きる現場</h3>
+      <ul class="ps-list">
+        <li>
+          <svg class="ps-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          紙の管理表・ホワイトボードで記録が属人化
+        </li>
+        <li>
+          <svg class="ps-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          担当者が変わると引き継ぎができない
+        </li>
+        <li>
+          <svg class="ps-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          交換忘れで機械トラブル・品質不良が発生
+        </li>
+        <li>
+          <svg class="ps-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          過去の交換履歴を遡れず原因追跡できない
+        </li>
+        <li>
+          <svg class="ps-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          高額なMESや保全システムは中小工場に不向き
+        </li>
+      </ul>
+    </div>
+    <div class="ps-col" style="background:rgba(37,99,235,0.02); border-left: 1px solid rgba(37,99,235,0.1);">
+      <div class="ps-label solution">After — machlog 導入後</div>
+      <h3>全員がスマホで確認・記録。<br>交換忘れゼロへ。</h3>
+      <ul class="ps-list">
+        <li>
+          <svg class="ps-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          スマホ・PCから誰でも記録・閲覧できる
+        </li>
+        <li>
+          <svg class="ps-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          交換サイクルの経過日数を自動計算・可視化
+        </li>
+        <li>
+          <svg class="ps-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          期限アラートで交換忘れをシステムが防止
+        </li>
+        <li>
+          <svg class="ps-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          交換履歴を検索・蓄積してトレーサビリティ確保
+        </li>
+        <li>
+          <svg class="ps-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          月額不要・買い切り¥30,000で小規模工場にも
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="reveal">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">主な機能</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+      </svg>
+      <h3>交換サイクル可視化</h3>
+      <p>切削液・冷却水・作動油・フィルターなど各消耗品の前回交換日と経過日数をダッシュボードで一覧表示。複数機種・複数アイテムを横断管理できます。</p>
+    </div>
+    <div class="feature-card reveal">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+      </svg>
+      <h3>期限アラート通知</h3>
+      <p>設定した交換サイクルが近づくと自動でアラート表示。「要確認」「交換期限」などステータスが色分けされ、見落としを防ぎます。</p>
+    </div>
+    <div class="feature-card reveal">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/>
+      </svg>
+      <h3>スマホから全員記録</h3>
+      <p>Webアプリのためアプリのインストール不要。現場のスマートフォンやタブレットからブラウザで即座に交換記録を入力できます。</p>
+    </div>
+    <div class="feature-card reveal">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <h3>交換履歴の検索</h3>
+      <p>過去の記録を機械名・日付・消耗品種別で検索。品質トラブル発生時の原因追跡、監査・顧客対応時のトレーサビリティに対応します。</p>
+    </div>
+    <div class="feature-card reveal">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+      </svg>
+      <h3>多機種・多消耗品対応</h3>
+      <p>マシニングセンタ・CNC旋盤・研削盤など複数の機種タイプを登録。機種ごとに消耗品の種類と交換サイクルを個別設定できます。</p>
+    </div>
+    <div class="feature-card reveal">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      <h3>カスタマイズ対応</h3>
+      <p>消耗品の種類・機械種別など、工場の実情に合わせた設定変更に対応。多言語化（英語・ベトナム語）オプションも用意しています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="reveal">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">料金プラン</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="pricing-layout">
+    <div class="price-main reveal">
+      <div class="price-tag">BASE PRICE — 買い切り</div>
+      <div class="price-amount">
+        <span class="yen">¥</span><span class="num">30,000</span><span class="unit">（税込）</span>
+      </div>
+      <div class="price-note">月額費用なし・ランニングコストゼロ</div>
+      <div class="price-included">
+        <div class="price-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          交換サイクル可視化ダッシュボード
+        </div>
+        <div class="price-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          スマホからの記録入力
+        </div>
+        <div class="price-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          交換履歴の検索・閲覧
+        </div>
+        <div class="price-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          複数機種・複数消耗品対応
+        </div>
+        <div class="price-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          納期 約14日
+        </div>
+      </div>
+    </div>
+
+    <div class="options-list reveal">
+      <div style="font-size:.78rem; color:var(--muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:12px; padding: 0 4px;">オプション追加</div>
+      <div class="option-item">
+        <div>
+          <div class="option-name">多言語対応</div>
+          <div class="option-desc">英語・ベトナム語への切り替えUI追加</div>
+        </div>
+        <div class="option-price">+¥8,000</div>
+      </div>
+      <div class="option-item">
+        <div>
+          <div class="option-name">消耗品項目カスタマイズ</div>
+          <div class="option-desc">工場独自の品目・サイクル設定に変更</div>
+        </div>
+        <div class="option-price">+¥5,000</div>
+      </div>
+      <div class="option-item">
+        <div>
+          <div class="option-name">期限アラート自動通知</div>
+          <div class="option-desc">メール・ブラウザ通知による自動アラート</div>
+        </div>
+        <div class="option-price">+¥8,000</div>
+      </div>
+      <div class="option-item">
+        <div>
+          <div class="option-name">CSVエクスポート</div>
+          <div class="option-desc">交換履歴データのCSV出力機能</div>
+        </div>
+        <div class="option-price">+¥8,000</div>
+      </div>
+      <div class="option-item">
+        <div>
+          <div class="option-name">管理者ダッシュボード</div>
+          <div class="option-desc">全機種の状況を一括確認できる管理画面</div>
+        </div>
+        <div class="option-price">+¥10,000</div>
+      </div>
+      <div class="option-item">
+        <div>
+          <div class="option-name">納品後1ヶ月サポート</div>
+          <div class="option-desc">不具合対応・操作サポート・軽微な修正</div>
+        </div>
+        <div class="option-price">+¥5,000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEC -->
+<section id="spec">
+  <div class="reveal">
+    <div class="section-label">Specifications</div>
+    <h2 class="section-title">仕様・対応環境</h2>
+    <div class="section-divider"></div>
+  </div>
+  <table class="spec-table reveal">
+    <tr>
+      <td>アプリ形式</td>
+      <td>Webアプリ（ブラウザで動作。インストール不要）</td>
+    </tr>
+    <tr>
+      <td>対応端末</td>
+      <td>スマートフォン・タブレット・PC（iOS / Android / Windows）</td>
+    </tr>
+    <tr>
+      <td>技術スタック</td>
+      <td>React（フロントエンド）</td>
+    </tr>
+    <tr>
+      <td>対応機種例</td>
+      <td>マシニングセンタ、CNC旋盤、研削盤、その他汎用工作機械</td>
+    </tr>
+    <tr>
+      <td>管理項目例</td>
+      <td>切削液、冷却水（クーラント）、作動油、フィルター、グリス など</td>
+    </tr>
+    <tr>
+      <td>納期</td>
+      <td>約14日（要件・オプションにより変動）</td>
+    </tr>
+    <tr>
+      <td>料金体系</td>
+      <td>買い切り（月額・年額費用なし）</td>
+    </tr>
+    <tr>
+      <td>NDA対応</td>
+      <td>秘密保持契約の締結可</td>
+    </tr>
+    <tr>
+      <td>サポート</td>
+      <td>ご要望に応じてオプションで対応（納品後1ヶ月 +¥5,000）</td>
+    </tr>
+  </table>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-label reveal">Get Started</div>
+  <h2 class="reveal">貴社の現場に合わせた<br>導入をご提案します。</h2>
+  <p class="reveal">
+    導入台数・消耗品の種類・必要なオプションをヒアリングのうえ、<br>
+    貴社の現場に合わせた構成とお見積もりをご提案します。
+  </p>
+  <div class="reveal">
+    <a href="https://coconala.com/services/4181220" target="_blank" rel="noopener" class="btn-primary" style="font-size:.95rem; padding:18px 48px;">
+      ココナラで購入・相談する
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">ITO <span>Support Lab</span></div>
+  <p>© 2025 ITO Support Lab. All rights reserved.</p>
+</footer>
+
+<script>
+  /* Canvas bg */
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  class Particle {
+    constructor() { this.reset(true); }
+    reset(init) {
+      this.x = Math.random() * W; this.y = init ? Math.random() * H : H + 10;
+      this.vx = (Math.random()-.5)*.3; this.vy = -(Math.random()*.4+.1);
+      this.alpha = Math.random()*.10+.02; this.r = Math.random()*.9+.2;
+    }
+    update() { this.x+=this.vx; this.y+=this.vy; if(this.y<-10) this.reset(false); }
+    draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fillStyle=`rgba(37,99,235,${this.alpha})`; ctx.fill(); }
+  }
+  for(let i=0;i<45;i++) particles.push(new Particle());
+  function drawGrid() {
+    ctx.clearRect(0,0,W,H);
+    ctx.strokeStyle='rgba(37,99,235,0.05)'; ctx.lineWidth=1;
+    for(let x=0;x<W;x+=100){ ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke(); }
+    for(let y=0;y<H;y+=100){ ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke(); }
+  }
+  function animate() { drawGrid(); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animate); }
+  animate();
+
+  /* Reveal */
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e,i) => {
+      if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
