@@ -1,3 +1,10 @@
 .claude/
 *.DS_Store
 Thumbs.db
+node_modules/
+dist/
+build/
+.env
+.env.*
+.wrangler/
+.dev.vars

@@ -1,0 +1,13 @@
+{
+  "name": "credesiaworks-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Credesia Works static service site with Markdown blog.",
+  "scripts": {
+    "build": "node scripts/build-blog.mjs",
+    "dev": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
