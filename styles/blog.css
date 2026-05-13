@@ -145,8 +145,19 @@ main {
 
 .post-card a {
   display: block;
-  padding: clamp(20px, 5vw, 30px);
   text-decoration: none;
+}
+
+.post-card-body {
+  padding: clamp(20px, 5vw, 30px);
+}
+
+.post-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .post-card h2 {
@@ -199,10 +210,24 @@ main {
   border-bottom: 1px solid var(--line);
 }
 
+.article-cover {
+  width: 100%;
+  margin: 30px 0 0;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+
 .article-body {
   padding: 34px 0 18px;
   font-size: clamp(1rem, 2.7vw, 1.08rem);
   line-height: 2;
+}
+
+.article-body img {
+  width: 100%;
+  margin: 28px 0;
+  border-radius: 8px;
 }
 
 .article-body h2 {
@@ -236,26 +261,6 @@ main {
 .article-body a {
   color: var(--accent);
   text-underline-offset: 3px;
-}
-
-.soft-cta {
-  margin: 42px 0 34px;
-  padding: clamp(20px, 5vw, 28px);
-  border: 1px solid rgba(30,77,130,.18);
-  border-radius: 8px;
-  background: linear-gradient(135deg, rgba(30,77,130,.05), rgba(47,122,85,.06));
-}
-
-.soft-cta p {
-  margin: 0 0 14px;
-  color: var(--text);
-  line-height: 1.8;
-}
-
-.soft-cta a {
-  color: var(--accent);
-  font-weight: 700;
-  text-decoration: none;
 }
 
 .related {

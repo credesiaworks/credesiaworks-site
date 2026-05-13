@@ -37,6 +37,7 @@ function markdownToHtml(markdown) {
   let listOpen = false;
 
   const inline = (text) => escapeHtml(text)
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy">')
     .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
@@ -85,6 +86,13 @@ function markdownToHtml(markdown) {
       continue;
     }
 
+    if (trimmed.startsWith('![')) {
+      flushParagraph();
+      closeList();
+      html.push(inline(trimmed));
+      continue;
+    }
+
     paragraph.push(trimmed);
   }
 
@@ -109,11 +117,21 @@ function readPosts() {
       return { ...data, slug, body, html: markdownToHtml(body) };
     })
     .filter((post) => post.published === true || post.published === 'true')
-    .sort((a, b) => String(b.date).localeCompare(String(a.date)));
+    .sort((a, b) => {
+      const byDate = String(b.date).localeCompare(String(a.date));
+      return byDate || String(b.slug).localeCompare(String(a.slug));
+    });
 }
 
-function pageShell({ title, description, canonical, type = 'website', body }) {
+function imageUrl(post) {
+  if (!post.image) return `${siteUrl}/22_36_05.png`;
+  if (String(post.image).startsWith('http')) return post.image;
+  return `${siteUrl}${post.image}`;
+}
+
+function pageShell({ title, description, canonical, type = 'website', image, body }) {
   const fullTitle = `${title} | クレデシアワークス`;
+  const ogImage = image || `${siteUrl}/22_36_05.png`;
   return `<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -127,13 +145,13 @@ function pageShell({ title, description, canonical, type = 'website', body }) {
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${escapeHtml(fullTitle)}">
   <meta property="og:description" content="${escapeHtml(description)}">
-  <meta property="og:image" content="${siteUrl}/22_36_05.png">
+  <meta property="og:image" content="${ogImage}">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="クレデシアワークス">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(fullTitle)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
-  <meta name="twitter:image" content="${siteUrl}/22_36_05.png">
+  <meta name="twitter:image" content="${ogImage}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
@@ -165,9 +183,12 @@ function renderIndex(posts) {
   const cards = posts.map((post) => `
     <article class="post-card">
       <a href="/blog/${post.slug}/">
-        <div class="post-meta"><time datetime="${escapeHtml(post.date)}">${escapeHtml(post.date)}</time><span>${escapeHtml(post.category)}</span></div>
-        <h2>${escapeHtml(post.title)}</h2>
-        <p>${escapeHtml(post.description)}</p>
+        ${post.image ? `<img src="${escapeHtml(post.image)}" alt="" loading="lazy" class="post-card-image">` : ''}
+        <div class="post-card-body">
+          <div class="post-meta"><time datetime="${escapeHtml(post.date)}">${escapeHtml(post.date)}</time><span>${escapeHtml(post.category)}</span></div>
+          <h2>${escapeHtml(post.title)}</h2>
+          <p>${escapeHtml(post.description)}</p>
+        </div>
       </a>
     </article>`).join('\n');
 
@@ -200,6 +221,7 @@ function renderPost(post, posts) {
     description: post.description,
     canonical: `${siteUrl}/blog/${post.slug}/`,
     type: 'article',
+    image: imageUrl(post),
     body: `<main>
     <article class="article">
       <a href="/blog/" class="back-link">ブログ一覧へ</a>
@@ -208,13 +230,10 @@ function renderPost(post, posts) {
         <h1>${escapeHtml(post.title)}</h1>
         <p>${escapeHtml(post.description)}</p>
       </header>
+      ${post.image ? `<img src="${escapeHtml(post.image)}" alt="" loading="lazy" class="article-cover">` : ''}
       <div class="article-body">
         ${post.html}
       </div>
-      <aside class="soft-cta">
-        <p>業務の見直しや小さな改善の相談は、クレデシアワークスで承っています。</p>
-        <a href="/#services">サービス内容を見る</a>
-      </aside>
       <nav class="related" aria-label="関連記事">
         <h2>ほかの実務メモ</h2>
         <ul>${related}</ul>

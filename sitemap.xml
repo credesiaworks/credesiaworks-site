@@ -19,7 +19,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://credesiaworks.pages.dev/blog/excel-data-sheet/</loc>
+    <loc>https://credesiaworks.pages.dev/blog/review-system-not-person/</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -31,8 +31,38 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://credesiaworks.pages.dev/blog/review-system-not-person/</loc>
+    <loc>https://credesiaworks.pages.dev/blog/excel-data-sheet/</loc>
     <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://credesiaworks.pages.dev/blog/paper-records-to-excel/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://credesiaworks.pages.dev/blog/furusato-tax-return-image/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://credesiaworks.pages.dev/blog/messy-excel-management-review/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://credesiaworks.pages.dev/blog/fix-inherited-excel-macro/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://credesiaworks.pages.dev/blog/merge-excel-monthly-summary/</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
