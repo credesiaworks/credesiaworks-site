@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excelの表は「1行1データ」にすると集計しやすくなる | クレデシアワークス</title>
+  <meta name="description" content="Excelの表をあとから集計しやすくするために、「1行1データ」の考え方と入力しやすさのバランスをまとめました。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://credesiaworks.pages.dev/blog/excel-one-row-one-data/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://credesiaworks.pages.dev/blog/excel-one-row-one-data/">
+  <meta property="og:title" content="Excelの表は「1行1データ」にすると集計しやすくなる | クレデシアワークス">
+  <meta property="og:description" content="Excelの表をあとから集計しやすくするために、「1行1データ」の考え方と入力しやすさのバランスをまとめました。">
+  <meta property="og:image" content="https://credesiaworks.pages.dev/images/blog/excel-one-row-one-data.jpg">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="クレデシアワークス">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Excelの表は「1行1データ」にすると集計しやすくなる | クレデシアワークス">
+  <meta name="twitter:description" content="Excelの表をあとから集計しやすくするために、「1行1データ」の考え方と入力しやすさのバランスをまとめました。">
+  <meta name="twitter:image" content="https://credesiaworks.pages.dev/images/blog/excel-one-row-one-data.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/blog.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="nav-logo">クレデシアワークス<span>Credesia Works</span></a>
+    <nav class="site-nav" aria-label="主要ナビゲーション">
+      <a href="/#services">サービス</a>
+      <a href="/blog/">ブログ</a>
+      <a href="https://coconala.com/users/6008522" target="_blank" rel="noopener" class="nav-cta">CONTACT</a>
+    </nav>
+  </header>
+  <main>
+    <article class="article">
+      <a href="/blog/" class="back-link">ブログ一覧へ</a>
+      <header class="article-header">
+        <div class="post-meta"><time datetime="2026-05-03">2026-05-03</time><span>Excel管理</span></div>
+        <h1>Excelの表は「1行1データ」にすると集計しやすくなる</h1>
+        <p>Excelの表をあとから集計しやすくするために、「1行1データ」の考え方と入力しやすさのバランスをまとめました。</p>
+      </header>
+      <img src="/images/blog/excel-one-row-one-data.jpg" alt="" loading="lazy" class="article-cover">
+      <div class="article-body">
+        <p>Excelで表を作るとき、見た目はきれいなのに、あとから集計しにくい表になってしまうことがあります。</p>
+<p>その原因の一つが、1つの行に複数の情報を入れすぎていることです。</p>
+<p>Excelは、あとから集計したり、並べ替えたり、検索したりすることを考えると、</p>
+<p>基本的には 「1行に1件のデータ」 として作る方が扱いやすくなります。</p>
+<h2>「1行1データ」とは</h2>
+<p>「1行1データ」とは、1つの出来事や記録を、1行にまとめる考え方です。</p>
+<p>たとえば、作業日報なら、</p>
+<ul>
+<li>日付</li>
+</ul>
+<ul>
+<li>担当者</li>
+</ul>
+<ul>
+<li>設備名</li>
+</ul>
+<ul>
+<li>作業内容</li>
+</ul>
+<ul>
+<li>数量</li>
+</ul>
+<ul>
+<li>不良数</li>
+</ul>
+<ul>
+<li>備考</li>
+</ul>
+<p>といった項目を列に分け、1回の作業を1行として記録します。</p>
+<p>こうしておくと、あとから担当者別、設備別、月別などで集計しやすくなります。</p>
+<h2>集計しにくい表の例</h2>
+<p>一方で、次のような表は、見た目は分かりやすくても、集計しにくくなることがあります。</p>
+<ul>
+<li>1つのセルに複数の情報が入っている</li>
+</ul>
+<ul>
+<li>1行の中に複数日分の記録が入っている</li>
+</ul>
+<ul>
+<li>担当者名が表の上や横に分かれている</li>
+</ul>
+<ul>
+<li>日付が列方向に並びすぎている</li>
+</ul>
+<ul>
+<li>セル結合が多い</li>
+</ul>
+<ul>
+<li>空白行やメモ欄が途中に入っている</li>
+</ul>
+<ul>
+<li>小計行がデータの途中に混ざっている</li>
+</ul>
+<p>人が見るための表としては分かりやすくても、Excelで集計するには扱いにくい形です。</p>
+<h2>なぜ集計しにくくなるのか</h2>
+<p>Excelで集計するときは、フィルター、並べ替え、ピボットテーブル、関数、マクロなどを使うことがあります。</p>
+<p>これらは基本的に、同じ列に同じ種類の情報が入っていることを前提にしています。</p>
+<p>たとえば、</p>
+<ul>
+<li>日付は日付の列</li>
+</ul>
+<ul>
+<li>担当者は担当者の列</li>
+</ul>
+<ul>
+<li>商品名は商品名の列</li>
+</ul>
+<ul>
+<li>数量は数量の列</li>
+</ul>
+<p>というように分かれていると、Excelは処理しやすくなります。</p>
+<p>逆に、1つのセルに「田中／Aライン／検査／120個」のように複数の情報が入っていると、あとから集計するために分解作業が必要になります。</p>
+<h2>見た目の表と集計用の表は分ける</h2>
+<p>Excelでは、印刷用に見やすい表と、集計用に扱いやすい表は、分けて考えるのがおすすめです。</p>
+<p>現場で使う帳票や提出用の書式は、見た目が大切です。</p>
+<p>一方で、あとから集計するデータは、見た目よりも「整理された形」が大切になります。</p>
+<p>たとえば、</p>
+<ul>
+<li>入力用シート</li>
+</ul>
+<ul>
+<li>集計用データシート</li>
+</ul>
+<ul>
+<li>印刷用シート</li>
+</ul>
+<p>のように役割を分けると、見やすさと集計しやすさを両立しやすくなります。</p>
+<h2>セル結合はできるだけ少なくする</h2>
+<p>管理表でよくあるのが、セル結合を使って見た目を整えるケースです。</p>
+<p>見た目はきれいになりますが、セル結合が多い表は、コピー、並べ替え、フィルター、マクロ処理で扱いにくくなることがあります。</p>
+<p>特に、あとからデータを集計したい表では、セル結合はできるだけ少なくした方が無難です。</p>
+<p>見た目を整えたい場合は、罫線や配置、色分けなどで対応できないかを考えるとよいです。</p>
+<h2>あとから使える表にするためのポイント</h2>
+<p>Excel管理表を作るときは、次の点を意識すると、あとから使いやすくなります。</p>
+<ul>
+<li>1行に1件の記録を入れる</li>
+</ul>
+<ul>
+<li>1列に1種類の情報を入れる</li>
+</ul>
+<ul>
+<li>列名を分かりやすくする</li>
+</ul>
+<ul>
+<li>日付、担当者、品名、数量などを分ける</li>
+</ul>
+<ul>
+<li>セル結合をなるべく使わない</li>
+</ul>
+<ul>
+<li>小計やメモをデータの途中に混ぜない</li>
+</ul>
+<ul>
+<li>入力ルールをそろえる</li>
+</ul>
+<p>最初に少し整理しておくだけで、あとからの集計や確認がかなり楽になります。</p>
+<h2>現場で使いやすい形にすることも大切</h2>
+<p>ただし、集計しやすさだけを優先しすぎると、現場で入力しにくい表になることもあります。</p>
+<p>実際に使う人が迷わず入力できること。</p>
+<p>あとから集計や確認がしやすいこと。</p>
+<p>この両方のバランスが大切です。</p>
+<p>現場で使うExcelは、きれいな表を作ることだけが目的ではありません。</p>
+<p>「入力しやすい」</p>
+<p>「確認しやすい」</p>
+<p>「集計しやすい」</p>
+<p>この3つを意識すると、長く使いやすい管理表になりやすいです。</p>
+<h2>まとめ</h2>
+<p>Excelの表は、見た目だけでなく、あとからどう使うかを考えて作ることが大切です。</p>
+<p>特に、日報、点検表、在庫表、売上表、作業実績表などは、あとから集計することが多いので、1行1データの考え方が役立ちます。</p>
+      </div>
+      <nav class="related" aria-label="関連記事">
+        <h2>ほかの実務メモ</h2>
+        <ul><li><a href="/blog/review-system-not-person/">同じ問題が何度も起きるときは、人より仕組みを見直す</a></li><li><a href="/blog/line-progress-list/">LINEは連絡、進捗は一覧で管理すると確認が楽になる</a></li></ul>
+      </nav>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div>
+      <strong>クレデシアワークス</strong>
+      <span>商品ページ改善・EC改善・Excel業務効率化</span>
+    </div>
+    <p>© 2025 クレデシアワークス. All rights reserved.</p>
+  </footer>
+</body>
+</html>
