@@ -769,7 +769,10 @@
     /* ─── MOBILE ─── */
     @media (max-width: 900px) {
       nav { padding: 14px 20px; }
-      .nav-links { display: none; }
+      .nav-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+      .nav-links li:not(.nav-mobile-keep) { display: none; }
+      .nav-links a { font-size: .74rem; }
+      .nav-cta { padding: 7px 13px; }
       #hero { padding: 0 20px; }
       section { padding: 72px 20px; }
       #numbers { padding: 44px 20px; }
@@ -807,7 +810,8 @@
     <li><a href="#target">こんな方へ</a></li>
     <li><a href="#samples">実績サンプル</a></li>
     <li><a href="#flow">ご相談の流れ</a></li>
-    <li><a href="https://coconala.com/users/6008522" target="_blank" rel="noopener" class="nav-cta">CONTACT</a></li>
+    <li class="nav-mobile-keep"><a href="/blog/">ブログ</a></li>
+    <li class="nav-mobile-keep"><a href="https://coconala.com/users/6008522" target="_blank" rel="noopener" class="nav-cta">CONTACT</a></li>
   </ul>
 </nav>
 
