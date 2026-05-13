@@ -163,7 +163,7 @@ function pageShell({ title, description, canonical, type = 'website', image, bod
     <nav class="site-nav" aria-label="主要ナビゲーション">
       <a href="/#services">サービス</a>
       <a href="/blog/">ブログ</a>
-      <a href="https://coconala.com/users/6008522" target="_blank" rel="noopener" class="nav-cta">CONTACT</a>
+      <a href="/#services" class="nav-cta">内容を見る</a>
     </nav>
   </header>
   ${body}
