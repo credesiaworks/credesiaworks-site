@@ -2,7 +2,7 @@
 title: 紙の記録表をExcel化する前に考えたいこと
 description: 現場で使っている紙の記録表・報告書を、Excelにしたいと思ったことはありませんか？ 日報、点検表、清掃記録、交換履歴、作業実績、在庫チェックなど、現場には紙で残している記録がたくさんあります。 紙の記録表は、すぐに書け
 date: 2026-05-01
-category: ????
+category: 業務改善
 slug: paper-records-to-excel
 published: true
 image: /images/blog/paper-records-to-excel.jpg

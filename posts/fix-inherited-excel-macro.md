@@ -2,7 +2,7 @@
 title: 前任者のExcelマクロが動かない…よくある原因と対処法
 description: 前任者が作ったExcelマクロが、急に動かなくなった経験はありませんか？ ・エラーが出て止まる ・そもそも何をしているのか分からない ・直したいけど触るのが怖い 現場ではよくあるトラブルです。 実際、Excelマクロは「
 date: 2026-04-30
-category: Excel??
+category: Excel管理
 slug: fix-inherited-excel-macro
 published: true
 image: /images/blog/fix-inherited-excel-macro.jpg

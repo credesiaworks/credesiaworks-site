@@ -2,7 +2,7 @@
 title: ふるさと納税の返礼品画像で伝えるべきこと
 description: ふるさと納税の返礼品ページで、写真はきれいなのに、商品の良さが思ったほど伝わっていないと感じることはありませんか？ 農産物、加工品、地域の商品には、味・香り・食感・作り手のこだわり・産地や生産の背景など、写真だけでは伝わ
 date: 2026-05-01
-category: ???????
+category: 商品ページ改善
 slug: furusato-tax-return-image
 published: true
 image: /images/blog/furusato-tax-return-image.jpg

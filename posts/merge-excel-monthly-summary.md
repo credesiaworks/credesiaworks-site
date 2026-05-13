@@ -1,8 +1,8 @@
 ---
 title: 複数のExcelを1つにまとめて、毎月の集計をラクにする方法
-description: 毎月、複数のExcelを開いて1つにコピペしていませんか？ たとえば、 ・支店別の売上表 ・担当者別の日報 ・部署別の実績表 ・月別の在庫表 ・検査記録や点検表 このようなファイルを、毎月1つずつ開いて、必要な部分をコピ
+description: 複数のExcelファイルを毎月手作業でまとめている場合に、ミスや手間を減らすための考え方をまとめました。
 date: 2026-04-29
-category: Excel??
+category: Excel管理
 slug: merge-excel-monthly-summary
 published: true
 image: /images/blog/merge-excel-monthly-summary.jpg
