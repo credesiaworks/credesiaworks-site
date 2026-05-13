@@ -1,6 +1,6 @@
 ---
 title: Excel管理がぐちゃぐちゃになる原因と見直し方
-description: 毎日の業務で使っているExcel、気づいたら管理しにくくなっていませんか？ 最初はシンプルな表だったのに、 項目が増え、シートが増え、担当者ごとのルールが増えて、 いつの間にか「どれが正しいファイルか分からない」という状
+description: Excel管理が複雑になってしまう原因を整理し、今ある表を扱いやすくするための見直し方をまとめました。
 date: 2026-04-30
 category: Excel管理
 slug: messy-excel-management-review
