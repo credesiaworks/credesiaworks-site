@@ -205,9 +205,9 @@
 
     .hero-title {
       font-size: clamp(2rem, 4.8vw, 4rem);
-      font-weight: 900;
+      font-weight: 800;
       line-height: 1.2;
-      letter-spacing: -.01em;
+      letter-spacing: 0;
       color: var(--text);
       opacity: 0;
       animation: fadeUp .8s .5s forwards;
@@ -222,11 +222,11 @@
 
     .hero-sub {
       margin-top: 22px;
-      font-size: .95rem;
+      font-size: 1rem;
       color: var(--muted);
       max-width: 440px;
       line-height: 1.95;
-      font-weight: 300;
+      font-weight: 400;
       opacity: 0;
       animation: fadeUp .8s .7s forwards;
     }
@@ -247,11 +247,11 @@
       color: #fff;
       font-weight: 700;
       font-size: .87rem;
-      letter-spacing: .09em;
+      letter-spacing: .06em;
       border: none;
       cursor: pointer;
       text-decoration: none;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      border-radius: 6px;
       transition: opacity .2s, transform .2s, box-shadow .2s;
       display: inline-flex;
       align-items: center;
@@ -267,9 +267,9 @@
       color: var(--text);
       font-weight: 500;
       font-size: .87rem;
-      letter-spacing: .09em;
+      letter-spacing: .06em;
       text-decoration: none;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      border-radius: 6px;
       transition: border-color .2s, color .2s;
       display: inline-block;
     }
@@ -287,9 +287,8 @@
       align-items: center;
       gap: 11px;
       font-size: .68rem;
-      letter-spacing: .32em;
+      letter-spacing: .12em;
       color: var(--accent2);
-      text-transform: uppercase;
       margin-bottom: 13px;
     }
     .section-label::before {
@@ -302,7 +301,7 @@
 
     .section-title {
       font-size: clamp(1.65rem, 3vw, 2.5rem);
-      font-weight: 900;
+      font-weight: 800;
       line-height: 1.28;
       margin-bottom: 13px;
     }
@@ -329,47 +328,46 @@
     /* ─── NUMBERS STRIP ─── */
     #numbers {
       background: var(--text);
-      padding: 58px 60px;
+      padding: 46px 60px;
       position: relative;
       z-index: 1;
     }
     .numbers-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
     }
     .number-item {
-      padding: 26px 32px;
+      padding: 24px 28px;
       border-right: 1px solid rgba(255,255,255,0.07);
       text-align: center;
+      background: rgba(255,255,255,0.02);
     }
     .number-item:last-child { border-right: none; }
     .number-val {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: clamp(2.4rem, 3.5vw, 3.4rem);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
       font-weight: 700;
-      line-height: 1;
-      background: linear-gradient(90deg, #60a5fa, #4ade80);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 8px;
+      line-height: 1.35;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 10px;
     }
     .number-suffix {
-      -webkit-text-fill-color: rgba(96,165,250,0.55);
-      font-size: .42em;
+      color: rgba(255,255,255,0.62);
+      font-size: .72em;
       vertical-align: middle;
     }
     .number-label {
       font-size: .74rem;
-      color: rgba(255,255,255,0.5);
-      letter-spacing: .12em;
+      color: rgba(255,255,255,0.62);
+      letter-spacing: .05em;
       line-height: 1.65;
     }
     .number-sub {
       display: block;
       font-size: .66rem;
-      color: rgba(255,255,255,0.26);
-      letter-spacing: .07em;
+      color: rgba(255,255,255,0.36);
+      letter-spacing: .03em;
       margin-top: 4px;
     }
 
@@ -386,7 +384,7 @@
       color: var(--muted);
       line-height: 2.05;
       margin-bottom: 16px;
-      font-weight: 300;
+      font-weight: 400;
     }
     .about-brand-text p strong { color: var(--text); font-weight: 700; }
     .brand-tagline {
@@ -405,6 +403,7 @@
       background: var(--bg2);
       border: 1px solid rgba(30,77,130,0.09);
       border-left: 3px solid var(--accent);
+      border-radius: 6px;
       padding: 26px 30px;
       transition: box-shadow .3s, transform .3s;
     }
@@ -417,20 +416,22 @@
     }
     .brand-card-icon { color: var(--accent2); flex-shrink: 0; }
     .brand-card h4 { font-size: .9rem; font-weight: 700; color: var(--text); }
-    .brand-card p { font-size: .9rem; color: var(--muted); line-height: 1.9; font-weight: 300; }
+    .brand-card p { font-size: .92rem; color: var(--muted); line-height: 1.9; font-weight: 400; }
 
     /* ─── SERVICES ─── */
     #services { background: var(--bg2); }
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
+      gap: 14px;
     }
     .service-card {
       background: var(--bg);
       padding: 44px 36px;
       position: relative;
       overflow: hidden;
+      border: 1px solid rgba(30,77,130,0.08);
+      border-radius: 8px;
       transition: transform .3s, box-shadow .3s;
     }
     .service-card::before {
@@ -453,7 +454,7 @@
     }
     .service-icon { width: 44px; height: 44px; margin-bottom: 18px; color: var(--accent); }
     .service-name { font-size: 1.08rem; font-weight: 700; margin-bottom: 12px; line-height: 1.45; }
-    .service-desc { font-size: .92rem; color: var(--muted); line-height: 1.9; font-weight: 300; }
+    .service-desc { font-size: .94rem; color: var(--muted); line-height: 1.9; font-weight: 400; }
     .service-tags {
       display: flex;
       flex-wrap: wrap;
@@ -481,11 +482,12 @@
     .target-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      gap: 12px;
     }
     .target-card {
       background: var(--bg2);
       padding: 26px 22px;
+      border-radius: 8px;
       border-top: 2px solid transparent;
       transition: border-color .3s, box-shadow .3s, transform .3s;
     }
@@ -519,11 +521,13 @@
     .reasons-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2px;
+      gap: 12px;
     }
     .reason-card {
       background: var(--bg);
       padding: 34px 26px;
+      border: 1px solid rgba(30,77,130,0.08);
+      border-radius: 8px;
       border-bottom: 2px solid transparent;
       transition: border-color .3s, transform .3s;
     }
@@ -537,18 +541,20 @@
       margin-bottom: 10px;
     }
     .reason-title { font-size: .9rem; font-weight: 700; margin-bottom: 9px; }
-    .reason-desc { font-size: .9rem; color: var(--muted); line-height: 1.9; font-weight: 300; }
+    .reason-desc { font-size: .92rem; color: var(--muted); line-height: 1.9; font-weight: 400; }
 
     /* ─── SAMPLES ─── */
     #samples { background: var(--bg); }
     .samples-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      gap: 14px;
     }
     .sample-card {
       background: var(--bg2);
       overflow: hidden;
+      border: 1px solid rgba(30,77,130,0.08);
+      border-radius: 8px;
       transition: transform .3s, box-shadow .3s;
     }
     .sample-card:hover { transform: translateY(-3px); box-shadow: 0 12px 38px rgba(30,77,130,0.09); }
@@ -565,22 +571,30 @@
     .sample-info { padding: 22px; }
     .sample-cat { font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent2); margin-bottom: 6px; }
     .sample-title { font-size: .9rem; font-weight: 700; margin-bottom: 6px; line-height: 1.45; }
-    .sample-desc { font-size: .88rem; color: var(--muted); line-height: 1.85; }
+    .sample-desc { font-size: .9rem; color: var(--muted); line-height: 1.85; }
 
     /* ─── WORKS ─── */
     #works { background: var(--bg2); }
+    .works-app-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: 860px;
+    }
 
     /* ─── FLOW ─── */
     #flow { background: var(--bg); }
     .flow-steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
+      gap: 12px;
     }
     .flow-step {
       background: var(--bg2);
       padding: 36px 24px 32px;
       position: relative;
+      border-radius: 8px;
+      border: 1px solid rgba(30,77,130,0.08);
     }
     .flow-step::after {
       content: '›';
@@ -603,7 +617,7 @@
       margin-bottom: 12px;
     }
     .flow-title { font-size: .9rem; font-weight: 700; margin-bottom: 8px; }
-    .flow-desc { font-size: .9rem; color: var(--muted); line-height: 1.9; font-weight: 300; }
+    .flow-desc { font-size: .92rem; color: var(--muted); line-height: 1.9; font-weight: 400; }
     .flow-tag {
       display: inline-block;
       margin-top: 13px;
@@ -671,9 +685,9 @@
       color: var(--accent);
       font-weight: 700;
       font-size: .9rem;
-      letter-spacing: .09em;
+      letter-spacing: .06em;
       text-decoration: none;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      border-radius: 6px;
       display: inline-flex;
       align-items: center;
       gap: 9px;
@@ -756,7 +770,7 @@
     }
     .sample-preview.has-photo { cursor: zoom-in; }
     .sample-preview.has-photo::after {
-      content: '拡大';
+      content: '画像を見る';
       position: absolute; bottom: 10px; right: 12px;
       font-size: .62rem; letter-spacing: .1em;
       color: rgba(255,255,255,0.9);
@@ -787,6 +801,7 @@
       .flow-steps { grid-template-columns: 1fr 1fr; }
       .flow-step::after { display: none; }
       .reasons-grid { grid-template-columns: 1fr 1fr; }
+      .works-app-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 540px) {
       .reasons-grid { grid-template-columns: 1fr; }
@@ -810,7 +825,7 @@
     <li><a href="#samples">取り組み例</a></li>
     <li><a href="#flow">進め方</a></li>
     <li class="nav-mobile-keep"><a href="/blog/">ブログ</a></li>
-    <li class="nav-mobile-keep"><a href="#services" class="nav-cta">内容を見る</a></li>
+    <li class="nav-mobile-keep"><a href="#services" class="nav-cta">サービスを見る</a></li>
   </ul>
 </nav>
 
@@ -825,17 +840,17 @@
   <div class="hero-bg-photo">
     <img src="22_36_05.png" alt="事業現場での業務改善イメージ">
   </div>
-  <div class="hero-eyebrow">Business Improvement Service</div>
+  <div class="hero-eyebrow">実務支援と小さな改善</div>
   <h1 class="hero-title">
-    今あるページと<br>仕事の流れを、
-    <span class="accent">少しずつ使いやすく。</span>
+    伝わりにくいページと<br>追いにくい仕事を、
+    <span class="accent">扱いやすい形へ。</span>
   </h1>
   <p class="hero-sub">
-    商品ページ、情報発信、Excel管理表を、<br>買い手に伝わりやすく、社内で扱いやすい形にしていきます。
+    商品ページ、情報発信、Excel管理表を、<br>買う人・使う人の目線で見直し、確認や引き継ぎがしやすい状態に近づけます。
   </p>
   <div class="hero-btns">
     <a href="/blog/" class="btn-primary">ブログを見る</a>
-    <a href="#services" class="btn-secondary">内容を見る</a>
+    <a href="#services" class="btn-secondary">サービスを見る</a>
   </div>
 </section>
 
@@ -844,7 +859,7 @@
   <div class="numbers-grid reveal">
     <div class="number-item">
       <div class="number-val">現場<span class="number-suffix">業務</span></div>
-      <div class="number-label">実務の流れをもとに<span class="number-sub">製造業・管理表・商品ページ 他</span></div>
+      <div class="number-label">実際の使われ方をもとに<span class="number-sub">製造業・管理表・商品ページ 他</span></div>
     </div>
     <div class="number-item">
       <div class="number-val">Excel<span class="number-suffix">管理</span></div>
@@ -852,11 +867,11 @@
     </div>
     <div class="number-item">
       <div class="number-val">EC・<span class="number-suffix" style="-webkit-text-fill-color:rgba(74,222,128,0.55);">農産物</span></div>
-      <div class="number-label">商品ページ改善<span class="number-sub">楽天・Amazon・ふるさと納税 他</span></div>
+      <div class="number-label">買う前の不安を減らす<span class="number-sub">楽天・Amazon・ふるさと納税 他</span></div>
     </div>
     <div class="number-item">
-      <div class="number-val" style="font-size:2rem; padding-top:8px;">オンライン</div>
-      <div class="number-label">遠方からでも対応<span class="number-sub">NDA締結可・秘密保持対応</span></div>
+      <div class="number-val">オンライン</div>
+      <div class="number-label">離れていても進めやすく<span class="number-sub">NDA締結可・秘密保持対応</span></div>
     </div>
   </div>
 </div>
@@ -865,20 +880,20 @@
 <section id="about-brand">
   <div class="about-brand-layout">
     <div class="about-brand-text reveal">
-      <div class="section-label">About</div>
-      <h2 class="section-title">無理なデジタル化ではなく、<br>今の仕事に合う改善を。</h2>
+      <div class="section-label">考え方</div>
+      <h2 class="section-title">大きく変える前に、<br>今あるものを使いやすく。</h2>
       <div class="section-divider"></div>
       <p>
-        クレデシアワークスは、会社や個人事業の情報発信、商品ページ、Excel管理表などを、今ある仕事に合わせて扱いやすくするための小さな実務支援です。
+        クレデシアワークスは、会社や個人事業の情報発信、商品ページ、Excel管理表などを、今の仕事に合わせて扱いやすくするための小さな実務支援です。
       </p>
       <p>
-        商品ページや説明文は買い手に伝わりやすく、Excel管理表や日々の手作業は社内で確認しやすく。<strong>今あるものを活かしながら</strong>、手戻りや確認漏れを減らしやすい形にしていきます。
+        商品ページや説明文は買い手に伝わりやすく、Excel管理表や日々の手作業は社内で確認しやすく。<strong>今あるものを活かしながら</strong>、手戻りや確認漏れを減らしやすい状態に近づけます。
       </p>
       <p>
         大きなシステムや広告を考える前に、ページ・管理表・仕事の流れを使う人の目線でそろえること。買う前の不安が減り、確認や引き継ぎがしやすくなることがあります。
       </p>
       <p>
-        予算・規模・今の環境に合わせて、必要なところから小さく進めることを大切にしています。
+        予算・規模・今の環境に合わせて、必要なところから小さく進めます。
       </p>
       <span class="brand-tagline">今あるものを、少しずつ使いやすく。</span>
     </div>
@@ -891,7 +906,7 @@
             </svg>
             <h4>買う前に知りたいことが伝わるページへ</h4>
           </div>
-          <p>商品の特徴や使う場面を整理し、買い手目線で構成・説明文・画像を組み立てます。購入前の不安を減らし、比較するときに必要な情報が届きやすいページを目指します。</p>
+          <p>商品の特徴や使う場面を整理し、買い手目線で構成・説明文・画像を組み立てます。購入前の不安を減らし、比較するときに必要な情報が届きやすくします。</p>
         </div>
         <div class="brand-card">
           <div class="brand-card-top">
@@ -900,7 +915,7 @@
             </svg>
             <h4>日々の手作業を確認しやすい形へ</h4>
           </div>
-          <p>集計・転記・確認作業など、繰り返しの手作業を扱いやすくします。現場のスタッフが使い続けられる形を重視します。</p>
+          <p>集計・転記・確認作業など、繰り返しの手作業を扱いやすくします。担当者が変わっても確認しやすく、現場で続けやすい形を重視します。</p>
         </div>
         <div class="brand-card">
           <div class="brand-card-top">
@@ -909,7 +924,7 @@
             </svg>
             <h4>予算・規模に合わせた小さな見直し</h4>
           </div>
-          <p>高額なシステムや大規模ツールの導入ありきではなく、今の環境・予算・体制に合わせます。必要なところから小さく進めることで、社内で続けやすい形にしていきます。</p>
+          <p>高額なシステムや大規模ツールの導入ありきではなく、今の環境・予算・体制に合わせます。必要なところから始め、社内で続けやすい形にしていきます。</p>
         </div>
       </div>
     </div>
@@ -919,7 +934,7 @@
 <!-- SERVICES -->
 <section id="services">
   <div class="reveal">
-    <div class="section-label">Services</div>
+    <div class="section-label">主な領域</div>
     <h2 class="section-title">取り組んでいること</h2>
     <div class="section-divider"></div>
   </div>
@@ -931,7 +946,7 @@
         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
       </svg>
       <div class="service-name">商品ページ改善</div>
-      <p class="service-desc">楽天・Amazon・ふるさと納税・ECサイトの商品ページを、買う前の不安が減る構成にしていきます。特徴、使う場面、内容量、価格感、比較されやすい点などを整理し、購入前に知りたいことが伝わりやすいページを目指します。</p>
+      <p class="service-desc">楽天・Amazon・ふるさと納税・ECサイトの商品ページを、買う前の不安が減る構成にしていきます。特徴、使う場面、内容量、価格感、比較されやすい点などを整理し、購入前に知りたいことが伝わりやすくします。</p>
       <div class="service-tags">
         <span class="service-tag">楽天</span>
         <span class="service-tag">Amazon</span>
@@ -947,12 +962,12 @@
       <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/>
       </svg>
-      <div class="service-name">EC改善</div>
-      <p class="service-desc">販売ページの流れ、画像、説明文の役割を整理します。離脱しやすい部分や申し込み前の不安を減らし、商品の良さや使う場面が想像しやすい売り場に近づけます。</p>
+      <div class="service-name">ECページの見直し</div>
+      <p class="service-desc">販売ページの流れ、画像、説明文の役割を整理します。途中で迷いやすい部分や申し込み前の不安を減らし、商品の良さや使う場面が想像しやすい売り場に近づけます。</p>
       <div class="service-tags">
         <span class="service-tag">ページ構成</span>
         <span class="service-tag">画像改善</span>
-        <span class="service-tag">訴求文</span>
+        <span class="service-tag">説明文</span>
         <span class="service-tag">ページ診断</span>
         <span class="service-tag">農産物</span>
       </div>
@@ -963,8 +978,8 @@
       <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M3 3h18v18H3zM9 3v18M3 9h6M3 15h6M15 9l-2 3 2 3M15 12h4"/>
       </svg>
-      <div class="service-name">Excel業務効率化</div>
-      <p class="service-desc">集計・転記・確認作業など、繰り返しの手作業をExcelやVBAで扱いやすくします。毎月の集計時間や転記ミスを減らしやすくし、担当者が変わっても引き継ぎしやすい管理表にしていきます。</p>
+      <div class="service-name">Excel管理表の改善</div>
+      <p class="service-desc">集計・転記・確認作業など、繰り返しの手作業をExcelやVBAで扱いやすくします。毎月の確認にかかる時間や転記ミスを減らしやすくし、担当者が変わっても引き継ぎしやすい管理表にしていきます。</p>
       <div class="service-tags">
         <span class="service-tag">VBA</span>
         <span class="service-tag">マクロ</span>
@@ -979,12 +994,12 @@
       <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
       </svg>
-      <div class="service-name">業務改善・小規模ツール化</div>
+      <div class="service-name">業務の一覧化・小さなツール化</div>
       <p class="service-desc">紙・Excel・LINEだけでは追いにくい情報を一覧化し、進捗や履歴を見返しやすくします。大きなシステムを前提にせず、現場で小さく使える仕組みにしていきます。</p>
       <div class="service-tags">
         <span class="service-tag">業務フロー整理</span>
-        <span class="service-tag">Web化</span>
-        <span class="service-tag">仕組み化</span>
+        <span class="service-tag">一覧化</span>
+        <span class="service-tag">記録の見える化</span>
         <span class="service-tag">スマホ対応</span>
       </div>
     </div>
@@ -995,14 +1010,14 @@
 <!-- TARGET -->
 <section id="target">
   <div class="reveal">
-    <div class="section-label">For You</div>
+    <div class="section-label">当てはまること</div>
     <h2 class="section-title">こんな方へ</h2>
     <div class="section-divider"></div>
   </div>
   <div class="target-grid">
     <div class="target-card reveal">
       <div class="target-check">✓</div>
-      <div class="target-text">商品の良さがページでうまく伝わっていない</div>
+      <div class="target-text">商品ページを見ても、違いや使い方が伝わりにくい</div>
     </div>
     <div class="target-card reveal">
       <div class="target-check">✓</div>
@@ -1010,11 +1025,11 @@
     </div>
     <div class="target-card reveal">
       <div class="target-check">✓</div>
-      <div class="target-text">手作業や転記が多く、担当者任せになっている</div>
+      <div class="target-text">手作業や転記が多く、やり方が担当者任せになっている</div>
     </div>
     <div class="target-card reveal">
       <div class="target-check">✓</div>
-      <div class="target-text">広告を増やす前に、まず販売ページを見直したい</div>
+      <div class="target-text">広告を増やす前に、販売ページの分かりにくさを減らしたい</div>
     </div>
     <div class="target-card reveal">
       <div class="target-check">✓</div>
@@ -1030,34 +1045,34 @@
 <!-- REASONS -->
 <section id="reasons">
   <div class="reveal">
-    <div class="section-label">Why Choose Us</div>
+    <div class="section-label">判断基準</div>
     <h2 class="section-title">大切にしていること</h2>
     <div class="section-divider"></div>
   </div>
   <div class="reasons-grid">
     <div class="reason-card reveal">
       <div class="reason-num">01</div>
-      <div class="reason-title">現場の流れに合う形を大切にします</div>
+      <div class="reason-title">現場の流れに合う形を選ぶ</div>
       <div class="reason-desc">製造業や現場業務に関わってきた経験をもとに、実際の仕事の流れに合う形を重視します。「作ったけれど使われない」状態にならないよう、日々の運用を大切にしています。</div>
     </div>
     <div class="reason-card reveal">
       <div class="reason-num">02</div>
-      <div class="reason-title">買い手が知りたいことを大切にします</div>
+      <div class="reason-title">買い手が知りたいことを先に置く</div>
       <div class="reason-desc">EC・ふるさと納税・農産物販売などの商品ページでは、スペックだけでなく、使う場面や不安になりやすい点も大切にします。買う前の不安が減るよう、知りたいことが自然に伝わる構成にします。</div>
     </div>
     <div class="reason-card reveal">
       <div class="reason-num">03</div>
-      <div class="reason-title">実務で使うExcelを前提にします</div>
+      <div class="reason-title">毎日使うExcelを前提にする</div>
       <div class="reason-desc">実務で使われるExcel管理表を見てきた経験をもとに、集計・転記・確認作業を扱いやすくします。複雑さよりも、担当者が日常的に使えて、引き継ぎしやすいことを重視します。</div>
     </div>
     <div class="reason-card reveal">
       <div class="reason-num">04</div>
-      <div class="reason-title">今あるものを活かします</div>
+      <div class="reason-title">今あるものから始める</div>
       <div class="reason-desc">新しいシステムや高額なツールを前提にしなくても、今の環境・管理表・ページから始められることがあります。予算や体制に合わせて、必要なところから小さく進めます。</div>
     </div>
     <div class="reason-card reveal">
       <div class="reason-num">05</div>
-      <div class="reason-title">小さく始めることを大切にします</div>
+      <div class="reason-title">小さく試して、続けやすくする</div>
       <div class="reason-desc">「どこから手をつければいいか分からない」という段階でも、今の状態を見ながら進めます。必要なところから少しずつ手を入れ、現場で続けやすい形に近づけます。</div>
     </div>
   </div>
@@ -1066,7 +1081,7 @@
 <!-- SAMPLES -->
 <section id="samples">
   <div class="reveal">
-    <div class="section-label">Works &amp; Samples</div>
+    <div class="section-label">事例</div>
     <h2 class="section-title">取り組み例</h2>
     <div class="section-divider"></div>
   </div>
@@ -1144,27 +1159,27 @@
 <!-- WORKS -->
 <section id="works">
   <div class="reveal">
-    <div class="section-label">Works — App</div>
+    <div class="section-label">小さなアプリ</div>
     <h2 class="section-title">開発実績</h2>
     <div class="section-divider"></div>
   </div>
-  <div class="reveal" style="display:grid; grid-template-columns:1fr 1fr; gap:2px; max-width:860px;">
-    <a href="machlog.html" style="text-decoration:none; color:inherit; display:block; background:var(--bg2); padding:44px; position:relative; overflow:hidden; border:1px solid rgba(30,77,130,0.1); transition:transform .3s, border-color .3s, box-shadow .3s;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(30,77,130,0.28)';this.style.boxShadow='0 12px 36px rgba(30,77,130,0.09)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(30,77,130,0.1)';this.style.boxShadow=''">
+  <div class="reveal works-app-grid">
+    <a href="machlog.html" style="text-decoration:none; color:inherit; display:block; background:var(--bg2); padding:44px; position:relative; overflow:hidden; border:1px solid rgba(30,77,130,0.1); border-radius:8px; transition:transform .3s, border-color .3s, box-shadow .3s;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(30,77,130,0.28)';this.style.boxShadow='0 12px 36px rgba(30,77,130,0.09)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(30,77,130,0.1)';this.style.boxShadow=''">
       <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))"></div>
       <div style="display:flex;align-items:center;gap:11px;margin-bottom:22px;">
         <span style="font-family:'Rajdhani',sans-serif;font-size:1.55rem;font-weight:700;color:var(--accent);letter-spacing:.05em;">machlog</span>
         <span style="font-size:.66rem;padding:3px 9px;border:1px solid rgba(30,77,130,0.22);color:var(--accent);letter-spacing:.1em;">Web App</span>
       </div>
       <div style="font-size:.98rem;font-weight:700;margin-bottom:11px;line-height:1.5;color:var(--text);">工作機械の切削液・消耗品<br>交換記録・管理アプリ</div>
-      <p style="font-size:.8rem;color:var(--muted);line-height:1.85;margin-bottom:22px;font-weight:300;">複数台の工作機械を持つ工場向け。スマホから交換を記録し、経過日数アラートで交換忘れを防止。月額費用なしの買い切りモデル。</p>
+      <p style="font-size:.86rem;color:var(--muted);line-height:1.85;margin-bottom:22px;font-weight:400;">複数台の工作機械を持つ工場向け。スマホから交換を記録し、経過日数アラートで交換忘れを防ぎやすくする小さな業務アプリです。</p>
       <div style="display:flex;align-items:center;gap:7px;font-size:.78rem;color:var(--accent);letter-spacing:.07em;">
         詳細を見る
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </div>
     </a>
-    <div style="background:var(--bg2);padding:44px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:13px;border:1px dashed rgba(0,0,0,0.1);">
+    <div style="background:var(--bg2);padding:44px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:13px;border:1px dashed rgba(0,0,0,0.12);border-radius:8px;">
       <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.16)" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      <div style="font-size:.78rem;color:rgba(0,0,0,0.26);letter-spacing:.09em;text-align:center;">追加のツールを<br>順次公開予定</div>
+      <div style="font-size:.8rem;color:rgba(0,0,0,0.36);letter-spacing:.04em;text-align:center;line-height:1.8;">実務メモや小さなツールを<br>少しずつ追加予定</div>
     </div>
   </div>
 </section>
@@ -1172,7 +1187,7 @@
 <!-- FLOW -->
 <section id="flow">
   <div class="reveal">
-    <div class="section-label">Process</div>
+    <div class="section-label">進め方</div>
     <h2 class="section-title">進め方</h2>
     <div class="section-divider"></div>
   </div>
@@ -1207,22 +1222,22 @@
 <!-- CTA -->
 <section id="cta">
   <div class="cta-inner">
-    <div class="section-label reveal">Contact</div>
+    <div class="section-label reveal">連絡先</div>
     <h2 class="section-title reveal">まずは、今の状態を<br>確認するところから。</h2>
     <div class="cta-divider reveal"></div>
     <p class="reveal">
       すぐに大きく変えるのではなく、今あるページ・管理表・仕事の流れを見ながら、<br>
-      今の状態を見ながら、必要なところから小さく進めます。日々の実務メモはブログにも残しています。
+      必要なところから小さく進めます。日々の実務メモはブログにも残しています。
     </p>
     <div class="cta-trust reveal">
-      <div class="trust-item"><div class="trust-check">✓</div>今の状態から確認</div>
-      <div class="trust-item"><div class="trust-check">✓</div>NDA（秘密保持契約）締結可</div>
+      <div class="trust-item"><div class="trust-check">✓</div>現状確認から</div>
+      <div class="trust-item"><div class="trust-check">✓</div>NDA締結可</div>
       <div class="trust-item"><div class="trust-check">✓</div>オンライン対応</div>
       <div class="trust-item"><div class="trust-check">✓</div>必要なところから少しずつ</div>
     </div>
     <div class="reveal">
       <a href="https://coconala.com/users/6008522" target="_blank" rel="noopener" class="btn-light">
-        ココナラのページを見る
+        連絡ページを見る
       </a>
       <p style="margin-top:16px; font-size:.74rem; color:rgba(255,255,255,0.58); letter-spacing:.04em;"><a href="/blog/" style="color:inherit; text-decoration:underline; text-underline-offset:4px;">ブログを見る</a></p>
     </div>
