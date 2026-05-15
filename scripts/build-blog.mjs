@@ -163,14 +163,14 @@ function pageShell({ title, description, canonical, type = 'website', image, bod
     <nav class="site-nav" aria-label="主要ナビゲーション">
       <a href="/#services">サービス</a>
       <a href="/blog/">ブログ</a>
-      <a href="/#services" class="nav-cta">内容を見る</a>
+      <a href="/#services" class="nav-cta">サービスを見る</a>
     </nav>
   </header>
   ${body}
   <footer class="site-footer">
     <div>
       <strong>クレデシアワークス</strong>
-      <span>商品ページ改善・EC改善・Excel業務効率化</span>
+      <span>商品ページ・Excel管理・小さな業務改善</span>
     </div>
     <p>© 2025 クレデシアワークス. All rights reserved.</p>
   </footer>
