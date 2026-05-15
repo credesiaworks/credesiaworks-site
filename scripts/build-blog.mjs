@@ -161,9 +161,8 @@ function pageShell({ title, description, canonical, type = 'website', image, bod
   <header class="site-header">
     <a href="/" class="nav-logo">クレデシアワークス<span>Credesia Works</span></a>
     <nav class="site-nav" aria-label="主要ナビゲーション">
-      <a href="/#services">サービス</a>
+      <a href="/">トップ</a>
       <a href="/blog/">ブログ</a>
-      <a href="/#services" class="nav-cta">サービスを見る</a>
     </nav>
   </header>
   ${body}
