@@ -5,6 +5,46 @@ const siteUrl = (process.env.SITE_URL || 'https://credesiaworks.pages.dev').repl
 const postsDir = join(process.cwd(), 'posts');
 const blogDir = join(process.cwd(), 'blog');
 
+const categoryDefinitions = [
+  {
+    name: 'Excel管理',
+    slug: 'excel',
+    description: 'Excel管理表、集計、転記、確認作業など、日々の表計算まわりを扱いやすくするための実務メモです。'
+  },
+  {
+    name: '業務改善',
+    slug: 'business-improvement',
+    description: '小さな手作業、確認漏れ、属人化、引き継ぎなど、仕事の流れを少しずつ見直すための実務メモです。'
+  },
+  {
+    name: '商品ページ改善',
+    slug: 'product-page',
+    description: '商品画像、説明文、売り場づくりなど、買う前の不安を減らし、商品の良さを伝えるための実務メモです。'
+  },
+  {
+    name: '情報発信',
+    slug: 'information',
+    description: 'ホームページ、SNS、社内用語、伝え方など、お客様に伝わる情報発信を考えるための実務メモです。'
+  },
+  {
+    name: '製造業',
+    slug: 'manufacturing',
+    description: '機械、交換記録、現場の管理、製造業まわりの小さな見直しについての実務メモです。'
+  },
+  {
+    name: 'EC改善',
+    slug: 'ec',
+    description: 'ECページ、商品説明、画像、購入前の不安など、ネット販売の見せ方を考える実務メモです。'
+  },
+  {
+    name: 'ふるさと納税',
+    slug: 'furusato',
+    description: '返礼品画像、農産物、地域商品の伝え方など、ふるさと納税ページを考える実務メモです。'
+  }
+];
+
+const categoryByName = new Map(categoryDefinitions.map((category) => [category.name, category]));
+
 function escapeHtml(value = '') {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -150,6 +190,51 @@ function imageUrl(post) {
   return `${siteUrl}${post.image}`;
 }
 
+function categoryUrl(categoryName) {
+  const category = categoryByName.get(categoryName);
+  return category ? `/blog/category/${category.slug}/` : '';
+}
+
+function postsByCategory(posts) {
+  return categoryDefinitions
+    .map((category) => ({
+      ...category,
+      posts: posts.filter((post) => post.category === category.name)
+    }))
+    .filter((category) => category.posts.length > 0);
+}
+
+function renderCategoryNav(categories, currentSlug = '') {
+  if (!categories.length) return '';
+  const links = categories.map((category) => `
+        <a href="/blog/category/${category.slug}/" class="${category.slug === currentSlug ? 'is-current' : ''}">${escapeHtml(category.name)}</a>`).join('');
+  return `<nav class="category-nav" aria-label="カテゴリ">
+      <span>カテゴリ</span>
+      <div>
+        ${links}
+      </div>
+    </nav>`;
+}
+
+function renderPostCards(posts) {
+  return posts.map((post) => {
+    const categoryHref = categoryUrl(post.category);
+    const categoryLabel = categoryHref
+      ? `<a href="${categoryHref}" class="post-category">${escapeHtml(post.category)}</a>`
+      : `<span>${escapeHtml(post.category)}</span>`;
+
+    return `
+    <article class="post-card">
+      ${post.image ? `<a href="/blog/${post.slug}/" class="post-image-link" aria-label="${escapeHtml(post.title)}"><img src="${escapeHtml(post.image)}" alt="" loading="lazy" class="post-card-image"></a>` : ''}
+      <div class="post-card-body">
+        <div class="post-meta"><time datetime="${escapeHtml(post.date)}">${escapeHtml(post.date)}</time>${categoryLabel}</div>
+        <h2><a href="/blog/${post.slug}/" class="post-title-link">${escapeHtml(post.title)}</a></h2>
+        <p>${escapeHtml(post.description)}</p>
+      </div>
+    </article>`;
+  }).join('\n');
+}
+
 function pageShell({ title, description, canonical, type = 'website', image, body }) {
   const fullTitle = `${title} | クレデシアワークス`;
   const ogImage = image || `${siteUrl}/22_36_05.png`;
@@ -199,19 +284,8 @@ function pageShell({ title, description, canonical, type = 'website', image, bod
 `;
 }
 
-function renderIndex(posts) {
-  const cards = posts.map((post) => `
-    <article class="post-card">
-      <a href="/blog/${post.slug}/">
-        ${post.image ? `<img src="${escapeHtml(post.image)}" alt="" loading="lazy" class="post-card-image">` : ''}
-        <div class="post-card-body">
-          <div class="post-meta"><time datetime="${escapeHtml(post.date)}">${escapeHtml(post.date)}</time><span>${escapeHtml(post.category)}</span></div>
-          <h2>${escapeHtml(post.title)}</h2>
-          <p>${escapeHtml(post.description)}</p>
-        </div>
-      </a>
-    </article>`).join('\n');
-
+function renderIndex(posts, categories) {
+  const cards = renderPostCards(posts);
   return pageShell({
     title: '実務メモ',
     description: '中小企業の業務改善、Excel管理、連絡と進捗管理の小さな気づきをまとめるクレデシアワークスのブログです。',
@@ -222,9 +296,33 @@ function renderIndex(posts) {
       <h1>現場の小さな見直しを、実務メモとして残します。</h1>
       <p>売り込みよりも、日々の管理表、連絡、確認作業を少し楽にするための気づきを中心にまとめています。</p>
     </section>
+    ${renderCategoryNav(categories)}
     <section class="post-list" aria-label="ブログ記事一覧">
       ${cards}
     </section>
+  </main>`
+  });
+}
+
+function renderCategoryPage(category, categories) {
+  const cards = renderPostCards(category.posts);
+  return pageShell({
+    title: `${category.name}の実務メモ`,
+    description: category.description,
+    canonical: `${siteUrl}/blog/category/${category.slug}/`,
+    body: `<main>
+    <article class="article category-page">
+      <a href="/blog/" class="back-link">ブログ一覧へ</a>
+      <header class="article-header">
+        <p class="eyebrow">CATEGORY</p>
+        <h1>${escapeHtml(category.name)}</h1>
+        <p>${escapeHtml(category.description)}</p>
+      </header>
+      ${renderCategoryNav(categories, category.slug)}
+      <section class="post-list" aria-label="${escapeHtml(category.name)}の記事一覧">
+        ${cards}
+      </section>
+    </article>
   </main>`
   });
 }
@@ -236,6 +334,11 @@ function renderPost(post, posts) {
     .map((item) => `<li><a href="/blog/${item.slug}/">${escapeHtml(item.title)}</a></li>`)
     .join('');
 
+  const categoryHref = categoryUrl(post.category);
+  const categoryLabel = categoryHref
+    ? `<a href="${categoryHref}" class="post-category">${escapeHtml(post.category)}</a>`
+    : `<span>${escapeHtml(post.category)}</span>`;
+
   return pageShell({
     title: post.title,
     description: post.description,
@@ -246,7 +349,7 @@ function renderPost(post, posts) {
     <article class="article">
       <a href="/blog/" class="back-link">ブログ一覧へ</a>
       <header class="article-header">
-        <div class="post-meta"><time datetime="${escapeHtml(post.date)}">${escapeHtml(post.date)}</time><span>${escapeHtml(post.category)}</span></div>
+        <div class="post-meta"><time datetime="${escapeHtml(post.date)}">${escapeHtml(post.date)}</time>${categoryLabel}</div>
         <h1>${escapeHtml(post.title)}</h1>
         <p>${escapeHtml(post.description)}</p>
       </header>
@@ -263,11 +366,12 @@ function renderPost(post, posts) {
   });
 }
 
-function writeSitemap(posts) {
+function writeSitemap(posts, categories) {
   const urls = [
     { loc: `${siteUrl}/`, priority: '1.0' },
     { loc: `${siteUrl}/machlog.html`, priority: '0.6' },
     { loc: `${siteUrl}/blog/`, priority: '0.8' },
+    ...categories.map((category) => ({ loc: `${siteUrl}/blog/category/${category.slug}/`, priority: '0.7' })),
     ...posts.map((post) => ({ loc: `${siteUrl}/blog/${post.slug}/`, priority: '0.7', lastmod: post.date }))
   ];
 
@@ -286,15 +390,21 @@ ${urls.map((url) => `  <url>
 }
 
 const posts = readPosts();
+const categories = postsByCategory(posts);
 rmSync(blogDir, { recursive: true, force: true });
 mkdirSync(blogDir, { recursive: true });
 
-writeFileSync(join(blogDir, 'index.html'), renderIndex(posts));
+writeFileSync(join(blogDir, 'index.html'), renderIndex(posts, categories));
+for (const category of categories) {
+  const categoryDir = join(blogDir, 'category', category.slug);
+  mkdirSync(categoryDir, { recursive: true });
+  writeFileSync(join(categoryDir, 'index.html'), renderCategoryPage(category, categories));
+}
 for (const post of posts) {
   const postDir = join(blogDir, post.slug);
   mkdirSync(postDir, { recursive: true });
   writeFileSync(join(postDir, 'index.html'), renderPost(post, posts));
 }
 
-writeSitemap(posts);
-console.log(`Generated ${posts.length} blog posts.`);
+writeSitemap(posts, categories);
+console.log(`Generated ${posts.length} blog posts and ${categories.length} category pages.`);

@@ -2,7 +2,7 @@
 title: ふるさと納税の返礼品画像で伝えるべきこと
 description: ふるさと納税の返礼品画像で、写真だけでは伝わりにくい魅力や購入前の不安をどう見せるかをまとめました。
 date: 2026-05-01
-category: 商品ページ改善
+category: ふるさと納税
 slug: furusato-tax-return-image
 published: true
 image: /images/blog/furusato-tax-return-image.jpg

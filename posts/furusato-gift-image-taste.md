@@ -2,7 +2,7 @@
 title: おいしさが伝わる返礼品画像になっていますか？
 description: ふるさと納税の返礼品画像で、おいしさやこだわりを誤解なく伝えるために確認したい情報をまとめました。
 date: 2026-05-03
-category: 商品ページ改善
+category: ふるさと納税
 slug: furusato-gift-image-taste
 published: true
 image: /images/blog/furusato-gift-image-taste.jpg

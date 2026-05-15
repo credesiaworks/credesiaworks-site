@@ -2,7 +2,7 @@
 title: LINEは連絡、進捗は一覧で管理すると確認が楽になる
 description: LINEでやり取りする現場でも、進捗確認は一覧表に分けると抜け漏れを減らしやすくなります。
 date: 2026-05-13
-category: 進捗管理
+category: 業務改善
 slug: line-progress-list
 published: true
 ---
