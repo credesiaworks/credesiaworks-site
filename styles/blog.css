@@ -10,7 +10,11 @@
   --line: rgba(26, 45, 61, .12);
 }
 
-html { scroll-behavior: smooth; }
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -80,7 +84,8 @@ img { display: block; max-width: 100%; height: auto; }
 .site-nav a:hover { color: var(--accent); }
 
 main {
-  width: min(100%, 1120px);
+  width: 100%;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 0 clamp(18px, 5vw, 32px) 80px;
 }
@@ -107,6 +112,8 @@ main {
   font-size: clamp(2rem, 7vw, 3.6rem);
   line-height: 1.25;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
+  line-break: strict;
 }
 
 .blog-hero p:last-child,
@@ -194,6 +201,7 @@ main {
 }
 
 .article {
+  width: 100%;
   max-width: 820px;
   margin: 0 auto;
   padding-top: clamp(40px, 10vw, 80px);
@@ -253,6 +261,23 @@ main {
 .article-body p,
 .article-body ul {
   margin: 0 0 22px;
+}
+
+.article-body pre {
+  margin: 0 0 24px;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(30, 77, 130, 0.05);
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  white-space: pre;
+}
+
+.article-body code {
+  font-family: Consolas, "Noto Sans JP", monospace;
 }
 
 .article-body ul {
@@ -321,15 +346,31 @@ main {
 @media (max-width: 640px) {
   .site-header {
     align-items: center;
+    justify-content: flex-start;
+    gap: 10px 14px;
     padding: 12px 18px;
   }
 
+  .nav-logo {
+    flex: 1 1 180px;
+    min-width: 0;
+  }
+
   .site-nav {
+    flex: 0 0 auto;
+    justify-content: flex-start;
     gap: 8px 12px;
   }
 
   .site-nav a {
     font-size: .74rem;
+  }
+
+  .blog-hero h1,
+  .article-header h1 {
+    font-size: clamp(1.55rem, 7vw, 2rem);
+    line-height: 1.35;
+    word-break: break-all;
   }
 
   .post-list {

@@ -35,6 +35,7 @@ function markdownToHtml(markdown) {
   const html = [];
   let paragraph = [];
   let listOpen = false;
+  let codeBlock = null;
 
   const inline = (text) => escapeHtml(text)
     .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy">')
@@ -55,6 +56,23 @@ function markdownToHtml(markdown) {
 
   for (const line of lines) {
     const trimmed = line.trim();
+
+    if (trimmed.startsWith('```')) {
+      if (codeBlock) {
+        html.push(`<pre><code>${escapeHtml(codeBlock.join('\n'))}</code></pre>`);
+        codeBlock = null;
+      } else {
+        flushParagraph();
+        closeList();
+        codeBlock = [];
+      }
+      continue;
+    }
+
+    if (codeBlock) {
+      codeBlock.push(line);
+      continue;
+    }
 
     if (!trimmed) {
       flushParagraph();
@@ -98,6 +116,9 @@ function markdownToHtml(markdown) {
 
   flushParagraph();
   closeList();
+  if (codeBlock) {
+    html.push(`<pre><code>${escapeHtml(codeBlock.join('\n'))}</code></pre>`);
+  }
   return html.join('\n');
 }
 
