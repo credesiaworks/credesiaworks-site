@@ -461,7 +461,7 @@ main {
 
   .blog-hero h1,
   .article-header h1 {
-    font-size: clamp(1.42rem, 6.2vw, 1.82rem);
+    font-size: clamp(1.28rem, 5.8vw, 1.68rem);
     line-height: 1.35;
     word-break: break-all;
   }
