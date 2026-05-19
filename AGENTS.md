@@ -8,7 +8,7 @@
 ## プロジェクト概要
 
 **ブランド名**：クレデシアワークス / Credesia Works  
-**サイトURL**：https://credesiaworks.pages.dev  
+**サイトURL**：https://credesia.net  
 **リポジトリ**：https://github.com/credesiaworks/credesiaworks-site  
 **デプロイ**：Cloudflare Pages（mainブランチへのpushで自動デプロイ）
 
@@ -92,7 +92,8 @@
 | 03 | Excel業務効率化 | VBA・集計自動化・管理表整備 | ¥5,000〜 |
 | 04 | 業務改善・小規模ツール化 | 業務フロー・Web化・仕組み化 | 要相談 |
 
-**問い合わせ先**：https://coconala.com/users/6008522
+**問い合わせ先**：info@credesia.net  
+**補助導線**：https://coconala.com/users/6008522
 
 ---
 
@@ -143,5 +144,5 @@ git push（credential.username=credesiaworks）
   ↓
 Cloudflare Pages が自動検知・デプロイ
   ↓
-https://credesiaworks.pages.dev に反映
+https://credesia.net に反映
 ```

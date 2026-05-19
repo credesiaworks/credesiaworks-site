@@ -1,7 +1,7 @@
 import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 
-const siteUrl = (process.env.SITE_URL || 'https://credesiaworks.pages.dev').replace(/\/$/, '');
+const siteUrl = (process.env.SITE_URL || 'https://credesia.net').replace(/\/$/, '');
 const postsDir = join(process.cwd(), 'posts');
 const blogDir = join(process.cwd(), 'blog');
 

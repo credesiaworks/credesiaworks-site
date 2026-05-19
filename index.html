@@ -8,14 +8,14 @@
   <meta name="keywords" content="商品ページ改善,EC改善,EC画像,商品画像改善,説明文改善,楽天 商品ページ,Amazon 商品ページ,ふるさと納税 返礼品 画像,Excel 業務効率化,Excel VBA,Excel 自動化,管理表 改善,業務改善,中小企業 業務効率化,現場改善,手作業 削減">
   <meta name="author" content="クレデシアワークス">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://credesiaworks.pages.dev/">
+  <link rel="canonical" href="https://credesia.net/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://credesiaworks.pages.dev/">
+  <meta property="og:url" content="https://credesia.net/">
   <meta property="og:title" content="クレデシアワークス | 商品ページ・Excel管理・小さな業務改善">
   <meta property="og:description" content="商品ページ、情報発信、Excel管理表などを、今の仕事に合わせて少しずつ扱いやすくする実務支援です。">
-  <meta property="og:image" content="https://credesiaworks.pages.dev/22_36_05.png">
+  <meta property="og:image" content="https://credesia.net/22_36_05.png">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="クレデシアワークス">
 
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="クレデシアワークス | 商品ページ・Excel管理・小さな業務改善">
   <meta name="twitter:description" content="商品ページ、情報発信、Excel管理表などを、今の仕事に合わせて少しずつ扱いやすくする実務支援です。">
-  <meta name="twitter:image" content="https://credesiaworks.pages.dev/22_36_05.png">
+  <meta name="twitter:image" content="https://credesia.net/22_36_05.png">
 
   <!-- JSON-LD 構造化データ -->
   <script type="application/ld+json">
@@ -32,7 +32,8 @@
     "@type": "ProfessionalService",
     "name": "クレデシアワークス",
     "alternateName": "Credesia Works",
-    "url": "https://credesiaworks.pages.dev/",
+    "url": "https://credesia.net/",
+    "email": "mailto:info@credesia.net",
     "description": "会社や個人事業の情報発信、商品ページ、Excel管理表などを、今の仕事に合わせて少しずつ扱いやすくする実務支援です。",
     "areaServed": "JP",
     "availableLanguage": "Japanese",
@@ -696,6 +697,34 @@
     .btn-light::after { content: '→'; font-size: .88em; transition: transform .2s; }
     .btn-light:hover { opacity: .93; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
     .btn-light:hover::after { transform: translateX(4px); }
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-light.subtle {
+      background: transparent;
+      color: rgba(255,255,255,0.78);
+      border: 1px solid rgba(255,255,255,0.24);
+      font-weight: 500;
+    }
+    .btn-light.subtle:hover {
+      background: rgba(255,255,255,0.08);
+      box-shadow: none;
+    }
+    .contact-email {
+      margin-top: 18px !important;
+      margin-bottom: 0 !important;
+      font-size: .78rem !important;
+      color: rgba(255,255,255,0.62) !important;
+      letter-spacing: .03em;
+    }
+    .contact-email a {
+      color: inherit;
+      text-underline-offset: 4px;
+    }
 
     /* ─── FOOTER ─── */
     footer {
@@ -806,6 +835,14 @@
     @media (max-width: 540px) {
       .reasons-grid { grid-template-columns: 1fr; }
       .flow-steps { grid-template-columns: 1fr; }
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .cta-actions .btn-light {
+        justify-content: center;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -1236,9 +1273,15 @@
       <div class="trust-item"><div class="trust-check">✓</div>必要なところから少しずつ</div>
     </div>
     <div class="reveal">
-      <a href="https://coconala.com/users/6008522" target="_blank" rel="noopener" class="btn-light">
-        連絡先を見る
-      </a>
+      <div class="cta-actions">
+        <a href="mailto:info@credesia.net?subject=%E3%82%AF%E3%83%AC%E3%83%87%E3%82%B7%E3%82%A2%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%B9%E3%81%B8%E3%81%AE%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B" class="btn-light">
+          メールで問い合わせる
+        </a>
+        <a href="https://coconala.com/users/6008522" target="_blank" rel="noopener" class="btn-light subtle">
+          ココナラのページを見る
+        </a>
+      </div>
+      <p class="contact-email"><a href="mailto:info@credesia.net">info@credesia.net</a></p>
       <p style="margin-top:16px; font-size:.74rem; color:rgba(255,255,255,0.58); letter-spacing:.04em;"><a href="/blog/" style="color:inherit; text-decoration:underline; text-underline-offset:4px;">ブログを見る</a></p>
     </div>
   </div>

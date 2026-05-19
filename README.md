@@ -2,7 +2,9 @@
 
 Credesia Works のサービス紹介サイトです。既存の静的HTMLサイトを維持しながら、Markdownベースのブログを追加しています。
 
-公開URL: https://credesiaworks.pages.dev
+公開URL: https://credesia.net
+
+問い合わせ先: info@credesia.net
 
 ## 使用技術
 
@@ -108,7 +110,7 @@ Cloudflare Pages では次の設定で公開できます。
 - Root directory: 空欄またはリポジトリルート
 - Node.js version: 18以上
 
-独自ドメインは Cloudflare Pages の Custom domains から後で接続できます。
+独自ドメイン `credesia.net` を Cloudflare Pages の Custom domains から接続して公開します。Cloudflare Pages 側では、必要に応じて `www` あり/なしのリダイレクトも設定できます。
 
 ## 将来拡張メモ
 
