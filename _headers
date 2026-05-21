@@ -15,3 +15,9 @@
 
 /proposals/akiba-202605-b4n9
   X-Robots-Tag: noindex, nofollow
+
+/proposals/mori-denki-202605-h6x2/*
+  X-Robots-Tag: noindex, nofollow
+
+/proposals/mori-denki-202605-h6x2
+  X-Robots-Tag: noindex, nofollow
